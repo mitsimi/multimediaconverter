@@ -27,7 +27,7 @@ public class Frame extends QThread implements PictureConverter {
         frame.setLineWidth(2);
         QVBoxLayout frameLayout = new QVBoxLayout(frame);
 
-        QLabel label1 = new QLabel("Label 1", frame);
+        QLabel label1 = new QLabel("Rename", frame);
         textField1 = new QLineEdit(frame);
 
         //Button für Upload und Speicherung erstellen
@@ -71,27 +71,27 @@ public class Frame extends QThread implements PictureConverter {
         if(selectedOption.equals("JPEG"))
         {
             newimage = convertJPEG(image);
-            File outputFile = new File(textField1.text()+"/newimage.jpg");
+            File outputFile = new File("E:/"+textField1.text()+".jpg");
             ImageIO.write(newimage, "jpg", outputFile);
 
         } else if (selectedOption.equals("PNG")) {
             newimage = convertPNG(image);
-            File outputFile = new File(textField1.text()+"/newimage.png");
+            File outputFile = new File("E:/"+textField1.text()+".png");
             ImageIO.write(newimage, "png", outputFile);
 
         } else if (selectedOption.equals("GIF")) {
             newimage = convertGIF(image);
-            File outputFile = new File(textField1.text()+"/newimage.gif");
+            File outputFile = new File("E:/"+textField1.text()+".gif");
             ImageIO.write(newimage, "gif", outputFile);
 
         } else if (selectedOption.equals("BMP")) {
             newimage = convertBMP(image);
-            File outputFile = new File(textField1.text()+"/newimage.bmp");
+            File outputFile = new File("E:/"+textField1.text()+".bmp");
             ImageIO.write(newimage, "bmp", outputFile);
 
         } else if (selectedOption.equals("TIFF")) {
             newimage = convertTIFF(image);
-            File outputFile = new File(textField1.text()+"/newimage.tiff");
+            File outputFile = new File("E:/"+textField1.text()+".tiff");
             ImageIO.write(newimage, "tiff", outputFile);
         }
 
