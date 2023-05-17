@@ -50,7 +50,7 @@ public class Frame extends QThread implements PictureConverter {
         dropdownMenu.addItem("MP3");
         dropdownMenu.addItem("OGG");
         dropdownMenu.addItem("WAV");*/
-
+        selectedOption = "JPEG";
         dropdownMenu.currentIndexChanged.connect(this, "handleDropdownSelection(int)");
 
         // Layout konfigurieren
@@ -68,28 +68,28 @@ public class Frame extends QThread implements PictureConverter {
         BufferedImage image = ImageIO.read(new File(path));
         BufferedImage newimage = null;
         //Convert Image
-        if(selectedOption == "JPEG")
+        if(selectedOption.equals("JPEG"))
         {
             newimage = convertJPEG(image);
             File outputFile = new File(textField1.text()+"/newimage.jpg");
             ImageIO.write(newimage, "jpg", outputFile);
 
-        } else if (selectedOption == "PNG") {
+        } else if (selectedOption.equals("PNG")) {
             newimage = convertPNG(image);
             File outputFile = new File(textField1.text()+"/newimage.png");
             ImageIO.write(newimage, "png", outputFile);
 
-        } else if (selectedOption == "GIF") {
+        } else if (selectedOption.equals("GIF")) {
             newimage = convertGIF(image);
             File outputFile = new File(textField1.text()+"/newimage.gif");
             ImageIO.write(newimage, "gif", outputFile);
 
-        } else if (selectedOption == "BMP") {
+        } else if (selectedOption.equals("BMP")) {
             newimage = convertBMP(image);
             File outputFile = new File(textField1.text()+"/newimage.bmp");
             ImageIO.write(newimage, "bmp", outputFile);
 
-        } else if (selectedOption == "TIFF") {
+        } else if (selectedOption.equals("TIFF")) {
             newimage = convertTIFF(image);
             File outputFile = new File(textField1.text()+"/newimage.tiff");
             ImageIO.write(newimage, "tiff", outputFile);
