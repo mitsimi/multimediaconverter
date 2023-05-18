@@ -3,6 +3,9 @@ package gui;
 import io.qt.core.*;
 import io.qt.widgets.*;
 import picture.PictureConverter;
+import types.AudioType;
+import types.ImageType;
+import types.VideoType;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -62,40 +65,43 @@ public class Frame extends QThread implements PictureConverter {
         if(selectedOption == null)
         {
             return;
-            //TODO Ausgabe dass Filetype nicht unterstützt wird
+            //TODO Ausgabe, dass Filetype nicht unterstützt wird
         }
         //Create Image
         BufferedImage image = ImageIO.read(new File(path));
         BufferedImage newimage = null;
         //Convert Image
-        if(selectedOption.equals("JPEG"))
-        {
-            newimage = convertJPEG(image);
-            File outputFile = new File("E:/"+textField1.text()+".jpg");
-            ImageIO.write(newimage, "jpg", outputFile);
+        switch (selectedOption) {
+            case "JPEG" -> {
+                newimage = convertJPEG(image);
+                File outputFile = new File("E:/" + textField1.text() + ".jpg");
+                ImageIO.write(newimage, "jpg", outputFile);
 
-        } else if (selectedOption.equals("PNG")) {
-            newimage = convertPNG(image);
-            File outputFile = new File("E:/"+textField1.text()+".png");
-            ImageIO.write(newimage, "png", outputFile);
+            }
+            case "PNG" -> {
+                newimage = convertPNG(image);
+                File outputFile = new File("E:/" + textField1.text() + ".png");
+                ImageIO.write(newimage, "png", outputFile);
 
-        } else if (selectedOption.equals("GIF")) {
-            newimage = convertGIF(image);
-            File outputFile = new File("E:/"+textField1.text()+".gif");
-            ImageIO.write(newimage, "gif", outputFile);
+            }
+            case "GIF" -> {
+                newimage = convertGIF(image);
+                File outputFile = new File("E:/" + textField1.text() + ".gif");
+                ImageIO.write(newimage, "gif", outputFile);
 
-        } else if (selectedOption.equals("BMP")) {
-            newimage = convertBMP(image);
-            File outputFile = new File("E:/"+textField1.text()+".bmp");
-            ImageIO.write(newimage, "bmp", outputFile);
+            }
+            case "BMP" -> {
+                newimage = convertBMP(image);
+                File outputFile = new File("E:/" + textField1.text() + ".bmp");
+                ImageIO.write(newimage, "bmp", outputFile);
 
-        } else if (selectedOption.equals("TIFF")) {
-            newimage = convertTIFF(image);
-            File outputFile = new File("E:/"+textField1.text()+".tiff");
-            ImageIO.write(newimage, "tiff", outputFile);
-        }
-        else {
-            System.out.println("unimlemented");
+            }
+            case "TIFF" -> {
+                newimage = convertTIFF(image);
+                File outputFile = new File("E:/" + textField1.text() + ".tiff");
+                ImageIO.write(newimage, "tiff", outputFile);
+            }
+            default -> System.out.println("not implemented");
         }
     }
     private void openFile() {
@@ -108,31 +114,33 @@ public class Frame extends QThread implements PictureConverter {
         String fileType = fileInfo.completeSuffix();
         System.out.println(fileType);
             //dropdownMenu.addItem("OGG");
-        String[] pictureFormat = {"jpg","png","bmp","gif","tiff"};
+            //String[] pictureFormat = {"jpg","png","bmp","gif","tiff"};
         String[] audioFormat = {"wav","mp3"};
         String[] videoFormat = {"avi","mp4","wmv"};
 
-        if (contains(audioFormat,fileType.toString()) ) {
+        // TODO - Use enums
+        if (contains(audioFormat, fileType) ) {
             dropdownMenu.clear();
-            dropdownMenu.addItem("WAV");
-            dropdownMenu.addItem("MP3");
-        } else if (contains(videoFormat,fileType.toString())) {
+            for ( AudioType type : AudioType.values() ) {
+                dropdownMenu.addItem(type.toString());
+            }
+        } else if (contains(videoFormat, fileType)) {
             dropdownMenu.clear();
-            dropdownMenu.addItem("MP4");
-            dropdownMenu.addItem("AVI");
-            dropdownMenu.addItem("WMV");
-        } else if (contains(pictureFormat,fileType.toString())) {
+            for ( VideoType type : VideoType.values() ) {
+                dropdownMenu.addItem(type.toString());
+            }
+        } else if (ImageType.contains(fileType)) {
             dropdownMenu.clear();
-            dropdownMenu.addItem("JPEG");
-            dropdownMenu.addItem("PNG");
-            dropdownMenu.addItem("BMP");
-            dropdownMenu.addItem("GIF");
-            dropdownMenu.addItem("TIFF");
+            for ( ImageType type : ImageType.values() ) {
+                dropdownMenu.addItem(type.toString());
+            }
             selectedOption = "JPEG";
         } else {
             dropdownMenu.clear();
         }
     }
+
+    @Deprecated
     public static boolean contains(String[] array, String value) {
         for (String element : array) {
             if (element.equals(value)) {
@@ -149,30 +157,5 @@ public class Frame extends QThread implements PictureConverter {
     private void handleDropdownSelection(int index) {
         selectedOption = dropdownMenu.itemText(index);
         System.out.println("Selected option: " + selectedOption);
-    }
-
-    @Override
-    public BufferedImage convertJPEG(BufferedImage image) {
-        return image;
-    }
-
-    @Override
-    public BufferedImage convertPNG(BufferedImage image) {
-        return image;
-    }
-
-    @Override
-    public BufferedImage convertGIF(BufferedImage image) {
-        return image;
-    }
-
-    @Override
-    public BufferedImage convertBMP(BufferedImage image) {
-        return image;
-    }
-
-    @Override
-    public BufferedImage convertTIFF(BufferedImage image) {
-        return image;
     }
 }

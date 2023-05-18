@@ -1,6 +1,6 @@
 package types;
 
-public enum Video implements Media{
+public enum VideoType implements MediaType {
     MP4,
     MOV,
     AVI,

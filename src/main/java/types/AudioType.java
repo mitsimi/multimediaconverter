@@ -1,6 +1,6 @@
 package types;
 
-public enum Audio implements Media {
+public enum AudioType implements MediaType {
     MP3,
     M4A,
     AAC,

@@ -1,7 +1,7 @@
 package convert;
 
-import types.Media;
+import types.MediaType;
 
 public interface Converter<T> {
-    public T convert(T media, Media to_type);
+    public T convert(T media, MediaType to_type);
 }
