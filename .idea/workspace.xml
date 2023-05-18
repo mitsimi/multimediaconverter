@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="More Setup">
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Branch init">
+      <change afterPath="$PROJECT_DIR$/src/main/java/convert/Converter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/Audio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/Image.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/Media.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/Video.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_6_5_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_native_windows_x64_6_5_0.xml" beforeDir="false" />
@@ -22,6 +27,7 @@
       <list>
         <option value="Class" />
         <option value="Interface" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -103,6 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683830107919</updated>
+      <workItem from="1684431096094" duration="193000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -125,8 +132,18 @@
       <option name="project" value="LOCAL" />
       <updated>1684171041051</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Branch init">
+      <created>1684436545745</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684436545745</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -143,7 +160,8 @@
     <MESSAGE value="Setup First Project" />
     <MESSAGE value="Added Readme to dev" />
     <MESSAGE value="More Setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="More Setup" />
+    <MESSAGE value="Branch init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Branch init" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
