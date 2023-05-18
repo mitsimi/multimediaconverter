@@ -5,7 +5,6 @@ import io.qt.widgets.*;
 import picture.PictureConverter;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +28,10 @@ public class Frame extends QThread implements PictureConverter {
 
         QLabel label1 = new QLabel("Rename", frame);
         textField1 = new QLineEdit(frame);
+        QLabel label3 = new QLabel("Link", frame);
+        QLineEdit textField2 = new QLineEdit(frame);
+        QLabel label2 = new QLabel("Convert to", frame);
+
 
         //Button für Upload und Speicherung erstellen
         QPushButton fileUpload = new QPushButton("Upload File", frame);
@@ -38,32 +41,29 @@ public class Frame extends QThread implements PictureConverter {
 
         //Dropdown Menü erstellen
         dropdownMenu = new QComboBox(frame);
-        dropdownMenu.addItem("JPEG");
-        dropdownMenu.addItem("PNG");
-        dropdownMenu.addItem("BMP");
-        dropdownMenu.addItem("GIF");
-        dropdownMenu.addItem("TIFF");
-        /*dropdownMenu.addItem("MP4");
-        dropdownMenu.addItem("AVI");
-        dropdownMenu.addItem("WMV");
-        dropdownMenu.addItem("MOV");
-        dropdownMenu.addItem("MP3");
-        dropdownMenu.addItem("OGG");
-        dropdownMenu.addItem("WAV");*/
-        selectedOption = "JPEG";
+
+
         dropdownMenu.currentIndexChanged.connect(this, "handleDropdownSelection(int)");
 
         // Layout konfigurieren
         frameLayout.addWidget(label1);
         frameLayout.addWidget(textField1);
+        frameLayout.addWidget(label3);
+        frameLayout.addWidget(textField2);
         frameLayout.addWidget(fileUpload);
         frameLayout.addWidget(fileSave);
+        frameLayout.addWidget(label2);
         frameLayout.addWidget(dropdownMenu);
 
         // Frame anzeigen
         frame.show();
     }
     private void saveFile() throws IOException {
+        if(selectedOption == null)
+        {
+            return;
+            //TODO Ausgabe dass Filetype nicht unterstützt wird
+        }
         //Create Image
         BufferedImage image = ImageIO.read(new File(path));
         BufferedImage newimage = null;
@@ -94,37 +94,52 @@ public class Frame extends QThread implements PictureConverter {
             File outputFile = new File("E:/"+textField1.text()+".tiff");
             ImageIO.write(newimage, "tiff", outputFile);
         }
-
-       /* String originalFilePath = path;
-        QFileInfo fileInfo = new QFileInfo(path);
-        String directoryPath = fileInfo.absolutePath();
-        String fileType = fileInfo.completeSuffix();
-
-        //Name,Path and FileType
-        String newFilePath = textField1.text()+"/"+newimage.toString();
-
-        QFile originalFile = new QFile(originalFilePath);
-        if (originalFile.open(QIODevice.OpenModeFlag.ReadOnly)) {
-            QByteArray fileData = originalFile.readAll();
-            originalFile.close();
-
-            QFile newFile = new QFile(newFilePath);
-            if (newFile.open(QIODevice.OpenModeFlag.WriteOnly)) {
-                newFile.write(fileData);
-                newFile.close();
-                System.out.println("File saved successfully to: " + newFilePath);
-            } else {
-                System.out.println("Failed to save file: " + newFile.errorString());
-            }
-        } else {
-            System.out.println("Failed to open original file: " + originalFile.errorString());
-        }*/
+        else {
+            System.out.println("unimlemented");
+        }
     }
     private void openFile() {
         QFileDialog fileDialog = new QFileDialog();
         fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
         fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
         fileDialog.exec();
+        //Check if File is Audio, Video, Picture and show possible converts
+        QFileInfo fileInfo = new QFileInfo(path);
+        String fileType = fileInfo.completeSuffix();
+        System.out.println(fileType);
+            //dropdownMenu.addItem("OGG");
+        String[] pictureFormat = {"jpg","png","bmp","gif","tiff"};
+        String[] audioFormat = {"wav","mp3"};
+        String[] videoFormat = {"avi","mp4","wmv"};
+
+        if (contains(audioFormat,fileType.toString()) ) {
+            dropdownMenu.clear();
+            dropdownMenu.addItem("WAV");
+            dropdownMenu.addItem("MP3");
+        } else if (contains(videoFormat,fileType.toString())) {
+            dropdownMenu.clear();
+            dropdownMenu.addItem("MP4");
+            dropdownMenu.addItem("AVI");
+            dropdownMenu.addItem("WMV");
+        } else if (contains(pictureFormat,fileType.toString())) {
+            dropdownMenu.clear();
+            dropdownMenu.addItem("JPEG");
+            dropdownMenu.addItem("PNG");
+            dropdownMenu.addItem("BMP");
+            dropdownMenu.addItem("GIF");
+            dropdownMenu.addItem("TIFF");
+            selectedOption = "JPEG";
+        } else {
+            dropdownMenu.clear();
+        }
+    }
+    public static boolean contains(String[] array, String value) {
+        for (String element : array) {
+            if (element.equals(value)) {
+                return true;
+            }
+        }
+        return false;
     }
     private void handleSelectedFile(String filePath) {
         // Handle the selected file path here

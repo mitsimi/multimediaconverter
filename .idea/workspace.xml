@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="All Picture Files work to upload and save">
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Np Path textfield, just newname">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
     </list>
@@ -130,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684331484370</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Np Path textfield, just newname">
+      <created>1684337236130</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684337236130</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,7 +184,8 @@
     <MESSAGE value="More Setup" />
     <MESSAGE value="FileUpload and Save" />
     <MESSAGE value="All Picture Files work to upload and save" />
-    <option name="LAST_COMMIT_MESSAGE" value="All Picture Files work to upload and save" />
+    <MESSAGE value="Np Path textfield, just newname" />
+    <option name="LAST_COMMIT_MESSAGE" value="Np Path textfield, just newname" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
