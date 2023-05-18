@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class Frame extends QThread implements PictureConverter {
 
-    //test
     public String path;
     QLineEdit textField1;
     QComboBox dropdownMenu;
