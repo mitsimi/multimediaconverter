@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Branch init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/convert/Converter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/Audio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/Image.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/Media.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/Video.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_6_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_native_windows_x64_6_5_0.xml" beforeDir="false" />
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/convert/ImageConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/multimediaconverter.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/convert/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/convert/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/MediaType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +26,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,6 +54,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2PeuwYpiXvWfz1qSsnpoI10ZbVV" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -65,6 +69,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "convert-base",
     "ignore.virus.scanning.warn.message": "true",
@@ -139,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684436545745</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Basic structure">
+      <created>1684437539166</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684437539166</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +173,8 @@
     <MESSAGE value="Added Readme to dev" />
     <MESSAGE value="More Setup" />
     <MESSAGE value="Branch init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Branch init" />
+    <MESSAGE value="Basic structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic structure" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
