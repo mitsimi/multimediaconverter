@@ -7,13 +7,18 @@ public enum ImageType implements MediaType {
     JPEG("jpeg"),
     JPG("jpg"),
     PNG("png"),
+    APNG("apng"),
     TIFF("tiff"),
+    TIF("tif"),
     BMP("bmp"),
+    WBMP("wbmp"),
     RAW("raw"),
-    CR2("cr2"),
-    NEF("nef"),
-    ORF("orf"),
-    SR2("sr2");
+//    CR2("cr2"),
+//    NEF("nef"),
+//    ORF("orf"),
+//    SR2("sr2"),
+//    WEBP("webp"),
+    ICO("ico");
 
     public final String fileExtension;
 
@@ -22,16 +27,10 @@ public enum ImageType implements MediaType {
     }
 
     public static ImageType getEnum(String type) {
-        if ( ImageType.contains(type) ) {
-            for (ImageType value : ImageType.values()) {
-                if (Objects.equals(value.fileExtension, type)) return value;
-            }
+        for (ImageType value : ImageType.values()) {
+            if (Objects.equals(value.fileExtension, type)) return value;
         }
         return null;
-    }
-
-    public String getFileExtension() {
-        return fileExtension;
     }
 
     public static boolean contains(String type) {
@@ -39,5 +38,10 @@ public enum ImageType implements MediaType {
             if (Objects.equals(value.fileExtension, type)) return true;
         }
         return false;
+    }
+
+    @Override
+    public String getFileExtension() {
+        return fileExtension;
     }
 }

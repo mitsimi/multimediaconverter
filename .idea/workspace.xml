@@ -4,19 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/convert/ImageConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/multimediaconverter.iml" beforeDir="false" />
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Imported javacv for OpenCV and FFMPEG, closes #4">
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/Converter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/convert/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/convert/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/convert/Converter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/convert/ImageConverter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/MediaType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/picture/PictureConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/AudioType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/ImageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/MediaType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/MediaType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/VideoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +154,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684437539166</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Enums for supported file extensions">
+      <created>1684440236285</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684440236285</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Imported javacv for OpenCV and FFMPEG, closes #4">
+      <created>1684440277019</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684440277019</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +191,9 @@
     <MESSAGE value="More Setup" />
     <MESSAGE value="Branch init" />
     <MESSAGE value="Basic structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic structure" />
+    <MESSAGE value="Enums for supported file extensions" />
+    <MESSAGE value="Imported javacv for OpenCV and FFMPEG, closes #4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imported javacv for OpenCV and FFMPEG, closes #4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
