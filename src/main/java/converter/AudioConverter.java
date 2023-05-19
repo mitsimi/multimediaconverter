@@ -1,14 +1,12 @@
 package converter;
 
-import types.MediaType;
-
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
 // TODO - apply changes from Converter
 public class AudioConverter implements Converter {
 
-    public AudioConverter(File file) {
+    public AudioConverter(Path path) {
     }
 
     @Override
