@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Np Path textfield, just newname">
-      <change afterPath="$PROJECT_DIR$/multimediaconverter.iml" afterDir="false" />
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Imported javacv for OpenCV and FFMPEG, closes #4">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/qtjambi_6_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/Converter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/MediaType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
     </list>
@@ -20,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -33,6 +42,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="qzu8g9x4" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -43,6 +55,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2PeuwYpiXvWfz1qSsnpoI10ZbVV" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -51,12 +66,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;convert-base&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.StartApp">
     <configuration name="StartApp" type="Application" factoryName="Application">
       <envs>
@@ -91,6 +115,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683830107919</updated>
+      <workItem from="1684431096094" duration="193000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -113,85 +138,46 @@
       <option name="project" value="LOCAL" />
       <updated>1684171041051</updated>
     </task>
-    <task id="LOCAL-00004" summary="FileUpload and Save">
-      <created>1684330954957</created>
+    <task id="LOCAL-00004" summary="Branch init">
+      <created>1684436545745</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1684330954957</updated>
+      <updated>1684436545745</updated>
     </task>
-    <task id="LOCAL-00005" summary="FileUpload and Save">
-      <created>1684331169401</created>
+    <task id="LOCAL-00005" summary="Basic structure">
+      <created>1684437539166</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1684331169401</updated>
+      <updated>1684437539166</updated>
     </task>
-    <task id="LOCAL-00006" summary="All Picture Files work to upload and save">
-      <created>1684331484370</created>
+    <task id="LOCAL-00006" summary="Enums for supported file extensions">
+      <created>1684440236285</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1684331484370</updated>
+      <updated>1684440236285</updated>
     </task>
-    <task id="LOCAL-00007" summary="Np Path textfield, just newname">
-      <created>1684337236130</created>
+    <task id="LOCAL-00007" summary="Imported javacv for OpenCV and FFMPEG, closes #4">
+      <created>1684440277019</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1684337236130</updated>
+      <updated>1684440277019</updated>
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/main" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="main" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/dev" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="wernerR-main-patch-13177" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -201,10 +187,11 @@
     <MESSAGE value="Setup First Project" />
     <MESSAGE value="Added Readme to dev" />
     <MESSAGE value="More Setup" />
-    <MESSAGE value="FileUpload and Save" />
-    <MESSAGE value="All Picture Files work to upload and save" />
-    <MESSAGE value="Np Path textfield, just newname" />
-    <option name="LAST_COMMIT_MESSAGE" value="Np Path textfield, just newname" />
+    <MESSAGE value="Branch init" />
+    <MESSAGE value="Basic structure" />
+    <MESSAGE value="Enums for supported file extensions" />
+    <MESSAGE value="Imported javacv for OpenCV and FFMPEG, closes #4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imported javacv for OpenCV and FFMPEG, closes #4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
