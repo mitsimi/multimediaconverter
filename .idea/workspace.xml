@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Imported javacv for OpenCV and FFMPEG, closes #4">
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/Converter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/convert/Converter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/convert/ImageConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/picture/PictureConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/AudioType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/ImageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/MediaType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/MediaType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/VideoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="convert-base" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="qzu8g9x4" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2PeuwYpiXvWfz1qSsnpoI10ZbVV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "convert-base",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.StartApp">
+    <configuration name="StartApp" type="Application" factoryName="Application">
+      <envs>
+        <env name="PATH" value="C:\Qt\6.5.0\msvc2019_64\bin" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="multimediaconverter" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartAppLinux" type="Application" factoryName="Application">
+      <envs>
+        <env name="PATH" value="/opt/Qt/6.5.0/gcc_64/lib" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="multimediaconverter" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.StartApp" />
+      <item itemvalue="Application.StartAppLinux" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="" />
+      <created>1683830107919</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683830107919</updated>
+      <workItem from="1684431096094" duration="193000" />
+    </task>
+    <task id="LOCAL-00001" summary="Setup First Project">
+      <created>1684168162931</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684168162931</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added Readme to dev">
+      <created>1684169660405</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684169660405</updated>
+    </task>
+    <task id="LOCAL-00003" summary="More Setup">
+      <created>1684171041051</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684171041051</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Branch init">
+      <created>1684436545745</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684436545745</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Basic structure">
+      <created>1684437539166</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684437539166</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Enums for supported file extensions">
+      <created>1684440236285</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684440236285</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Imported javacv for OpenCV and FFMPEG, closes #4">
+      <created>1684440277019</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684440277019</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Setup First Project" />
+    <MESSAGE value="Added Readme to dev" />
+    <MESSAGE value="More Setup" />
+    <MESSAGE value="Branch init" />
+    <MESSAGE value="Basic structure" />
+    <MESSAGE value="Enums for supported file extensions" />
+    <MESSAGE value="Imported javacv for OpenCV and FFMPEG, closes #4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imported javacv for OpenCV and FFMPEG, closes #4" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
