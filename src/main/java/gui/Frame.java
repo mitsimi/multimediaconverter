@@ -97,7 +97,7 @@ public class Frame extends QThread {
         converter.convert(selectedOption);
 
         //Save converted file
-        converter.save(fileInfo.absolutePath(), fieldFileName.text());
+        converter.save(fieldFilePath.text(), fieldFileName.text());
     }
 
     private void openFile() {
@@ -111,19 +111,17 @@ public class Frame extends QThread {
 
         // Set the file name and path based on the selected file
         fieldFileName.setText(fileInfo.baseName());
-        fieldFilePath.setText(fileInfo.absoluteFilePath());
-
-        System.out.println(fileType);
+        fieldFilePath.setText(fileInfo.absoluteDir().absolutePath());
 
         dropdownMenu.clear();
-        loadDropdownOptions(fileType);
+        loadDropdownOptions();
     }
 
     /* TODO - other approach needed.
         Converting from raw files not possible because they are not supported for conversion TO them.
      */
-    private void loadDropdownOptions(String fileType) {
-        fileType = fileType.toLowerCase();
+    private void loadDropdownOptions() {
+        String fileType = fileInfo.completeSuffix().toLowerCase();
         // Load the dropdown options based on the file type
         // HELP - May need to be changed for a faster approach
         if (AudioType.contains(fileType)) {
@@ -147,12 +145,10 @@ public class Frame extends QThread {
 
     private void handleSelectedFile(String filePath) {
         // Handle the selected file path here
-        System.out.println("Selected File: " + filePath);
         path = Path.of(filePath);
     }
 
     private void handleDropdownSelection(int index) {
         selectedOption = dropdownMenu.itemText(index);
-        System.out.println("Selected option: " + selectedOption);
     }
 }
