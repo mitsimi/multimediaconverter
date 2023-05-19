@@ -9,8 +9,5 @@
         <module name="multimediaconverter" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="multimediaconverter" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
