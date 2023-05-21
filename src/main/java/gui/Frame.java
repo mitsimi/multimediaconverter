@@ -46,36 +46,22 @@ public class Frame extends QThread {
         fileUpload.clicked.connect(this, "openFile()");
         QPushButton fileSave = new QPushButton("Save File", frame);
         fileSave.clicked.connect(this, "saveFile()");
+
         //Dropdown Menü erstellen
         dropdownMenu = new QComboBox(frame);
+
+
         dropdownMenu.currentIndexChanged.connect(this, "handleDropdownSelection(int)");
 
-
-        QTabWidget tabWidget = new QTabWidget();
-        frameLayout.addWidget(tabWidget);
-        // Tabs erstellen und hinzufügen
-        QWidget tab1 = new QWidget();
-        QVBoxLayout tab1Layout = new QVBoxLayout(tab1);
-        tabWidget.addTab(tab1, "Picture");
-
-        tab1Layout.addWidget(labelName);
-        tab1Layout.addWidget(fieldFileName);
-        tab1Layout.addWidget(labelPath);
-        tab1Layout.addWidget(fieldFilePath);
-        tab1Layout.addWidget(fileUpload);
-        tab1Layout.addWidget(fileSave);
-        tab1Layout.addWidget(labelConvert);
-        tab1Layout.addWidget(dropdownMenu);
-
-        QWidget tab2 = new QWidget();
-        QVBoxLayout tab2Layout = new QVBoxLayout(tab2);
-        tab2Layout.addWidget(new QLabel("TODO"));
-        tabWidget.addTab(tab2, "Audio");
-
-        QWidget tab3 = new QWidget();
-        QVBoxLayout tab3Layout = new QVBoxLayout(tab3);
-        tab3Layout.addWidget(new QLabel("TODO"));
-        tabWidget.addTab(tab3, "Video");
+        // Layout konfigurieren
+        frameLayout.addWidget(labelName);
+        frameLayout.addWidget(fieldFileName);
+        frameLayout.addWidget(labelPath);
+        frameLayout.addWidget(fieldFilePath);
+        frameLayout.addWidget(fileUpload);
+        frameLayout.addWidget(fileSave);
+        frameLayout.addWidget(labelConvert);
+        frameLayout.addWidget(dropdownMenu);
 
         // Frame anzeigen
         frame.show();
