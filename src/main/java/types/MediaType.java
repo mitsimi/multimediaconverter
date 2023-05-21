@@ -1,5 +1,7 @@
 package types;
 
+import java.util.Objects;
+
 public interface MediaType {
     public final String fileExtension = null;
 

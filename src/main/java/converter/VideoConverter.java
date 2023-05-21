@@ -1,14 +1,16 @@
 package converter;
+
 import types.MediaType;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
 // TODO - apply changes from Converter
 public class VideoConverter implements Converter {
 
 
-    public VideoConverter(File file) {
+    public VideoConverter(Path path) {
     }
 
     @Override
@@ -19,4 +21,3 @@ public class VideoConverter implements Converter {
     public void save(String absolutePath, String fileName) {
     }
 }
-

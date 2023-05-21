@@ -36,3 +36,4 @@ public enum AudioType implements MediaType {
         return fileExtension;
     }
 }
+

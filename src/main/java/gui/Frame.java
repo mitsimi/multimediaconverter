@@ -6,16 +6,13 @@ import converter.ImageConverter;
 import converter.VideoConverter;
 import io.qt.core.*;
 import io.qt.widgets.*;
-import types.AudioType;
-import types.ImageType;
-import types.MediaType;
-import types.VideoType;
+import types.*;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class Frame extends QThread {
-    private String path;
+    private Path path;
     private QFileInfo fileInfo;
     private MediaType mediaType;
 
@@ -26,7 +23,6 @@ public class Frame extends QThread {
     private String selectedOption;
 
     public void run() {
-
         QMetaObject.invokeMethod(this, "createFrame", Qt.ConnectionType.QueuedConnection);
     }
 
@@ -35,17 +31,17 @@ public class Frame extends QThread {
         // Frame erstellen
         QFrame frame = new QFrame();
         frame.setFrameStyle(QFrame.Shape.Box.value());
-        frame.setLineWidth(4);
+        frame.setLineWidth(0);
         QVBoxLayout frameLayout = new QVBoxLayout(frame);
 
         QLabel labelName = new QLabel("Name", frame);
         fieldFileName = new QLineEdit(frame);
-        QLabel labelLink = new QLabel("Link", frame);
+        QLabel labelPath = new QLabel("Path", frame);
         fieldFilePath = new QLineEdit(frame);
         QLabel labelConvert = new QLabel("Convert to", frame);
 
-
         //Button für Upload und Speicherung erstellen
+
         QPushButton fileUpload = new QPushButton("Upload File", frame);
         fileUpload.clicked.connect(this, "openFile()");
         QPushButton fileSave = new QPushButton("Save File", frame);
@@ -60,7 +56,7 @@ public class Frame extends QThread {
         // Layout konfigurieren
         frameLayout.addWidget(labelName);
         frameLayout.addWidget(fieldFileName);
-        frameLayout.addWidget(labelLink);
+        frameLayout.addWidget(labelPath);
         frameLayout.addWidget(fieldFilePath);
         frameLayout.addWidget(fileUpload);
         frameLayout.addWidget(fileSave);
@@ -73,25 +69,26 @@ public class Frame extends QThread {
 
     // TODO - Rewrite this method to be more generic
     private void saveFile() throws IOException {
-        File file = new File(path);
 
         Converter converter;
 
         // Create converter
         if (mediaType.getClass().equals(ImageType.class)) {
-            converter = new ImageConverter(file);
+            converter = new ImageConverter(path);
         } else if (mediaType.getClass().equals(AudioType.class)) {
-            converter = new AudioConverter(file);
+            converter = new AudioConverter(path);
         } else if (mediaType.getClass().equals(VideoType.class)) {
-            converter = new VideoConverter(file);
+            converter = new VideoConverter(path);
         } else { // so that the compiler shuts up
             converter = new Converter() {
                 @Override
                 public void convert(String to_type) throws IOException {
+                    throw new UnsupportedFileTypeException("Unsupported file type");
                 }
 
                 @Override
                 public void save(String absolutePath, String fileName) throws IOException {
+                    throw new UnsupportedFileTypeException("Unsupported file type");
                 }
             };
         }
@@ -100,9 +97,7 @@ public class Frame extends QThread {
         converter.convert(selectedOption);
 
         //Save converted file
-        converter.save(fileInfo.absolutePath(), fieldFileName.text());
-
-//         ImageIO.write(convertedImage, "jpg", outputFile);
+        converter.save(fieldFilePath.text(), fieldFileName.text());
     }
 
     private void openFile() {
@@ -111,20 +106,22 @@ public class Frame extends QThread {
         fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
         fileDialog.exec();
 
-        fileInfo = new QFileInfo(path);
+        fileInfo = new QFileInfo(path.toFile().getPath());
         String fileType = fileInfo.completeSuffix();
 
         // Set the file name and path based on the selected file
         fieldFileName.setText(fileInfo.baseName());
-        fieldFilePath.setText(fileInfo.absoluteFilePath());
-
-        System.out.println(fileType);
+        fieldFilePath.setText(fileInfo.absoluteDir().absolutePath());
 
         dropdownMenu.clear();
-        loadDropdownOptions(fileType);
+        loadDropdownOptions();
     }
 
-    private void loadDropdownOptions(String fileType) {
+    /* TODO - other approach needed.
+        Converting from raw files not possible because they are not supported for conversion TO them.
+     */
+    private void loadDropdownOptions() {
+        String fileType = fileInfo.completeSuffix().toLowerCase();
         // Load the dropdown options based on the file type
         // HELP - May need to be changed for a faster approach
         if (AudioType.contains(fileType)) {
@@ -142,19 +139,16 @@ public class Frame extends QThread {
             for ( ImageType type : ImageType.values() ) {
                 dropdownMenu.addItem(type.toString());
             }
-            selectedOption = ImageType.JPG.toString();
+            selectedOption = String.valueOf(ImageType.JPEG);
         }
     }
 
     private void handleSelectedFile(String filePath) {
         // Handle the selected file path here
-        System.out.println("Selected File: " + filePath);
-        path = filePath;
+        path = Path.of(filePath);
     }
 
     private void handleDropdownSelection(int index) {
         selectedOption = dropdownMenu.itemText(index);
-        System.out.println("Selected option: " + selectedOption);
     }
 }
-

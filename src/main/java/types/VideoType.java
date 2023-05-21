@@ -1,4 +1,5 @@
 package types;
+
 import java.util.Objects;
 
 public enum VideoType implements MediaType {
@@ -7,6 +8,8 @@ public enum VideoType implements MediaType {
     AVI("avi"),
     WMV("wmv"),
     MKV("mkv");
+    //GIF - Graphics Interchange Format
+    //APNG - Animated PNG
 
     public final String fileExtension;
 

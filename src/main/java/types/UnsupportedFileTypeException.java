@@ -1,5 +1,6 @@
 package types;
 
+
 import java.io.IOException;
 
 public class UnsupportedFileTypeException extends IOException {

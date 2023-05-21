@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Imported javacv for OpenCV and FFMPEG, closes #4">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/qtjambi_6_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/converter/Converter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/MediaType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)&#10;- Changed File to Path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/converter/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/AudioType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/ImageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/MediaType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/MediaType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/VideoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="wernerbranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,7 +57,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2PeuwYpiXvWfz1qSsnpoI10ZbVV" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -72,7 +70,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;convert-base&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;path-field-fix&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
@@ -173,11 +171,43 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev-setup" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -191,7 +221,9 @@
     <MESSAGE value="Basic structure" />
     <MESSAGE value="Enums for supported file extensions" />
     <MESSAGE value="Imported javacv for OpenCV and FFMPEG, closes #4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imported javacv for OpenCV and FFMPEG, closes #4" />
+    <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)" />
+    <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)&#10;- Changed File to Path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)&#10;- Changed File to Path" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

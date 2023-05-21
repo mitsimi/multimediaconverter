@@ -9,4 +9,3 @@ public interface Converter {
 
     public void save(String absolutePath, String fileName) throws IOException;
 }
-

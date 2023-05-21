@@ -1,47 +1,37 @@
 package types;
 
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
 //https://guides.lib.umich.edu/c.php?g=282942&p=1885348
 public enum ImageType implements MediaType {
-    JPEG("jpeg"),
-    JPG("jpg"),
+    JPEG("jpg", "jpeg"),
     PNG("png"),
-    APNG("apng"),
-    TIFF("tiff"),
-    TIF("tif"),
-    BMP("bmp"),
-    WBMP("wbmp"),
-    RAW("raw"),
-    //    CR2("cr2"),
-//    NEF("nef"),
-//    ORF("orf"),
-//    SR2("sr2"),
-//    WEBP("webp"),
-    ICO("ico");
+    TIFF("tiff", "tif"),
+    BMP("bmp");
 
-    public final String fileExtension;
+    public final ArrayList<String> fileExtension = new ArrayList<>();
 
-    ImageType(String fileExtension) {
-        this.fileExtension = fileExtension;
+    ImageType(String ...extension) {
+        fileExtension.addAll(List.of(extension));
     }
 
     public static ImageType getEnum(String type) {
         for (ImageType value : ImageType.values()) {
-            if (Objects.equals(value.fileExtension, type)) return value;
+            if (value.fileExtension.contains(type)) return value;
         }
         return null;
     }
 
     public static boolean contains(String type) {
         for (ImageType value : ImageType.values()) {
-            if (Objects.equals(value.fileExtension, type)) return true;
+            if (value.fileExtension.contains(type)) return true;
         }
         return false;
     }
 
     @Override
     public String getFileExtension() {
-        return fileExtension;
+        return fileExtension.get(0);
     }
 }
