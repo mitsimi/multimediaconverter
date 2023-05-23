@@ -226,7 +226,8 @@
     <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)" />
     <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)&#10;- Changed File to Path" />
     <MESSAGE value="pull dev" />
-    <option name="LAST_COMMIT_MESSAGE" value="pull dev" />
+    <MESSAGE value="Tab anpassung" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tab anpassung" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

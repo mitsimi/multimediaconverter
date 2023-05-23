@@ -5,6 +5,8 @@ import converter.Converter;
 import converter.ImageConverter;
 import converter.VideoConverter;
 import io.qt.core.*;
+import io.qt.gui.QImageReader;
+import io.qt.gui.QPixmap;
 import io.qt.widgets.*;
 import types.*;
 
@@ -18,13 +20,14 @@ public class Frame extends QThread {
 
     private QLineEdit fieldFileName;
     private QLineEdit fieldFilePath;
-
     private QComboBox dropdownMenu;
     private String selectedOption;
     private QBoxLayout tab1Layout;
+    private QFrame frame;
     private QLabel labelName;
     private QLabel labelPath;
     private QLabel labelConvert;
+    private QLabel showPicture;
     private QPushButton fileUpload;
     private QBoxLayout tab3Layout;
     private QPushButton fileSave;
@@ -37,7 +40,7 @@ public class Frame extends QThread {
     private void createFrame() {
 
         // Frame erstellen
-        QFrame frame = new QFrame();
+        frame = new QFrame();
         frame.setFrameStyle(QFrame.Shape.Box.value());
         frame.setLineWidth(0);
         QVBoxLayout frameLayout = new QVBoxLayout(frame);
@@ -66,20 +69,6 @@ public class Frame extends QThread {
         QVBoxLayout tab0Layout = new QVBoxLayout(tab0);
         tabWidget.addTab(tab0, "Convert");
 
-        QWidget tab1 = new QWidget();
-        QVBoxLayout tab1Layout = new QVBoxLayout(tab1);
-        tabWidget.addTab(tab1, "Edit: Picture");
-
-        QWidget tab2 = new QWidget();
-        QVBoxLayout tab2Layout = new QVBoxLayout(tab2);
-        tabWidget.addTab(tab2, "Edit: Audio");
-
-        QWidget tab3 = new QWidget();
-        QVBoxLayout tab3Layout = new QVBoxLayout(tab3);
-        tabWidget.addTab(tab3, "Edit: Video");
-
-
-        frameLayout.addWidget(tabWidget);
         tab0Layout.addWidget(labelName);
         tab0Layout.addWidget(fieldFileName);
         tab0Layout.addWidget(labelPath);
@@ -89,8 +78,54 @@ public class Frame extends QThread {
         tab0Layout.addWidget(labelConvert);
         tab0Layout.addWidget(dropdownMenu);
 
+        QWidget tab1 = new QWidget();
+        QVBoxLayout tab1Layout = new QVBoxLayout(tab1);
+        tabWidget.addTab(tab1, "Edit: Picture");
+
+        QPushButton pictureUpload = new QPushButton("Upload Picture", frame);
+        pictureUpload.clicked.connect(this, "openPicture()");
+        showPicture = new QLabel(frame);
+        tab1Layout.addWidget(showPicture);
+        tab1Layout.addWidget(pictureUpload);
+        tab1Layout.setAlignment(Qt.AlignmentFlag.AlignCenter);
+
+        QWidget tab2 = new QWidget();
+        QVBoxLayout tab2Layout = new QVBoxLayout(tab2);
+        tabWidget.addTab(tab2, "Edit: Audio");
+
+        QWidget tab3 = new QWidget();
+        QVBoxLayout tab3Layout = new QVBoxLayout(tab3);
+        tabWidget.addTab(tab3, "Edit: Video");
+
+        frameLayout.addWidget(tabWidget);
+
+
         // Frame anzeigen
         frame.show();
+    }
+    private void openPicture()
+    {
+        QFileDialog fileDialog = new QFileDialog();
+        fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
+        fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
+        fileDialog.exec();
+
+        QFileInfo fileInfo = new QFileInfo(path.toFile().getPath());
+
+        if (!fileInfo.filePath().isEmpty() && isImageFile(fileInfo.filePath())) {
+            QPixmap pixmap = new QPixmap(fileInfo.filePath());
+            int height = 500;
+            int width = (pixmap.width() * height) / pixmap.height();
+            QSize newSize = new QSize(width,height);
+            pixmap = pixmap.scaled(newSize);
+            showPicture.setPixmap(pixmap);
+        } else {
+            QMessageBox.warning(frame, "Invalid Image", "Selected file is not a valid image.");
+        }
+    }
+    private boolean isImageFile(String filePath) {
+        QImageReader imageReader = new QImageReader(filePath);
+        return imageReader.canRead();
     }
     // TODO - Rewrite this method to be more generic
     private void saveFile() throws IOException {
