@@ -5,6 +5,7 @@ import converter.Converter;
 import converter.ImageConverter;
 import converter.VideoConverter;
 import io.qt.core.*;
+import io.qt.gui.*;
 import io.qt.widgets.*;
 import types.*;
 
@@ -12,19 +13,21 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 public class Frame extends QThread {
+    private QPixmap pixmap;
     private Path path;
     private QFileInfo fileInfo;
     private MediaType mediaType;
 
     private QLineEdit fieldFileName;
     private QLineEdit fieldFilePath;
-
     private QComboBox dropdownMenu;
     private String selectedOption;
     private QBoxLayout tab1Layout;
+    private QFrame frame;
     private QLabel labelName;
     private QLabel labelPath;
     private QLabel labelConvert;
+    private QLabel showPicture;
     private QPushButton fileUpload;
     private QBoxLayout tab3Layout;
     private QPushButton fileSave;
@@ -37,7 +40,7 @@ public class Frame extends QThread {
     private void createFrame() {
 
         // Frame erstellen
-        QFrame frame = new QFrame();
+        frame = new QFrame();
         frame.setFrameStyle(QFrame.Shape.Box.value());
         frame.setLineWidth(0);
         QVBoxLayout frameLayout = new QVBoxLayout(frame);
@@ -66,20 +69,6 @@ public class Frame extends QThread {
         QVBoxLayout tab0Layout = new QVBoxLayout(tab0);
         tabWidget.addTab(tab0, "Convert");
 
-        QWidget tab1 = new QWidget();
-        QVBoxLayout tab1Layout = new QVBoxLayout(tab1);
-        tabWidget.addTab(tab1, "Edit: Picture");
-
-        QWidget tab2 = new QWidget();
-        QVBoxLayout tab2Layout = new QVBoxLayout(tab2);
-        tabWidget.addTab(tab2, "Edit: Audio");
-
-        QWidget tab3 = new QWidget();
-        QVBoxLayout tab3Layout = new QVBoxLayout(tab3);
-        tabWidget.addTab(tab3, "Edit: Video");
-
-
-        frameLayout.addWidget(tabWidget);
         tab0Layout.addWidget(labelName);
         tab0Layout.addWidget(fieldFileName);
         tab0Layout.addWidget(labelPath);
@@ -89,8 +78,95 @@ public class Frame extends QThread {
         tab0Layout.addWidget(labelConvert);
         tab0Layout.addWidget(dropdownMenu);
 
+        QWidget tab1 = new QWidget();
+        QVBoxLayout tab1Layout = new QVBoxLayout(tab1);
+        tabWidget.addTab(tab1, "Edit: Picture");
+
+        QPushButton pictureUpload = new QPushButton("Upload Picture", frame);
+        pictureUpload.clicked.connect(this, "openPicture()");
+        showPicture = new QLabel(frame);
+
+        QHBoxLayout northLayout = new QHBoxLayout();
+        QHBoxLayout centerLayout = new QHBoxLayout();
+        QHBoxLayout southLayout = new QHBoxLayout();
+
+        tab1Layout.addLayout(northLayout);
+        tab1Layout.addLayout(centerLayout);
+        tab1Layout.addLayout(southLayout);
+
+        QPushButton invert = new QPushButton("Invert", frame);
+        invert.clicked.connect(this, "invertPicture()");
+
+        northLayout.addWidget(invert);
+        centerLayout.addWidget(showPicture);
+        southLayout.addWidget(pictureUpload);
+        tab1Layout.setAlignment(Qt.AlignmentFlag.AlignCenter);
+
+        QWidget tab2 = new QWidget();
+        QVBoxLayout tab2Layout = new QVBoxLayout(tab2);
+        tabWidget.addTab(tab2, "Edit: Audio");
+
+        QWidget tab3 = new QWidget();
+        QVBoxLayout tab3Layout = new QVBoxLayout(tab3);
+        tabWidget.addTab(tab3, "Edit: Video");
+
+        frameLayout.addWidget(tabWidget);
+
+
         // Frame anzeigen
         frame.show();
+    }
+    private void invertPicture() {
+        if (pixmap != null)
+        {
+            QImage image = new QImage(fileInfo.filePath());
+            QPainter painter = new QPainter(pixmap);
+        int width = pixmap.width();
+        int height = pixmap.height();
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                System.out.println(y);
+                QColor color = new QColor(image.pixel(x, y));
+                int red = color.red();
+                int green = color.green();
+                int blue = color.blue();
+
+                QColor newColor = new QColor(255 - green, 255 - blue, 255 - red);
+
+                // Zeichnen Sie den Pixel mit den neuen Farbwerten
+                painter.setPen(newColor);
+                painter.drawPoint(x, y);
+            }
+
+        }
+
+        showPicture.setPixmap(pixmap);
+        painter.end();
+    }
+    }
+    private void openPicture()
+    {
+        QFileDialog fileDialog = new QFileDialog();
+        fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
+        fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
+        fileDialog.exec();
+
+        fileInfo = new QFileInfo(path.toFile().getPath());
+
+        if (!fileInfo.filePath().isEmpty() && isImageFile(fileInfo.filePath())) {
+            pixmap = new QPixmap(fileInfo.filePath());
+            int height = 500;
+            int width = (pixmap.width() * height) / pixmap.height();
+            QSize newSize = new QSize(width,height);
+            pixmap = pixmap.scaled(newSize);
+            showPicture.setPixmap(pixmap);
+        } else {
+            QMessageBox.warning(frame, "Invalid Image", "Selected file is not a valid image.");
+        }
+    }
+    private boolean isImageFile(String filePath) {
+        QImageReader imageReader = new QImageReader(filePath);
+        return imageReader.canRead();
     }
     // TODO - Rewrite this method to be more generic
     private void saveFile() throws IOException {
