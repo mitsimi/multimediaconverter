@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="pull dev">
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Tab anpassung">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
     </list>
@@ -109,6 +109,7 @@
       <workItem from="1684431096094" duration="193000" />
       <workItem from="1684733828823" duration="2137000" />
       <workItem from="1684849908548" duration="673000" />
+      <workItem from="1684862395776" duration="1936000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684684632695</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Tab anpassung">
+      <created>1684856507809</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684856507809</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -5,8 +5,7 @@ import converter.Converter;
 import converter.ImageConverter;
 import converter.VideoConverter;
 import io.qt.core.*;
-import io.qt.gui.QImageReader;
-import io.qt.gui.QPixmap;
+import io.qt.gui.*;
 import io.qt.widgets.*;
 import types.*;
 
@@ -14,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 public class Frame extends QThread {
+    private QPixmap pixmap;
     private Path path;
     private QFileInfo fileInfo;
     private MediaType mediaType;
@@ -85,8 +85,21 @@ public class Frame extends QThread {
         QPushButton pictureUpload = new QPushButton("Upload Picture", frame);
         pictureUpload.clicked.connect(this, "openPicture()");
         showPicture = new QLabel(frame);
-        tab1Layout.addWidget(showPicture);
-        tab1Layout.addWidget(pictureUpload);
+
+        QHBoxLayout northLayout = new QHBoxLayout();
+        QHBoxLayout centerLayout = new QHBoxLayout();
+        QHBoxLayout southLayout = new QHBoxLayout();
+
+        tab1Layout.addLayout(northLayout);
+        tab1Layout.addLayout(centerLayout);
+        tab1Layout.addLayout(southLayout);
+
+        QPushButton invert = new QPushButton("Invert", frame);
+        invert.clicked.connect(this, "invertPicture()");
+
+        northLayout.addWidget(invert);
+        centerLayout.addWidget(showPicture);
+        southLayout.addWidget(pictureUpload);
         tab1Layout.setAlignment(Qt.AlignmentFlag.AlignCenter);
 
         QWidget tab2 = new QWidget();
@@ -103,6 +116,34 @@ public class Frame extends QThread {
         // Frame anzeigen
         frame.show();
     }
+    private void invertPicture() {
+        if (pixmap != null)
+        {
+            QImage image = new QImage(fileInfo.filePath());
+            QPainter painter = new QPainter(pixmap);
+        int width = pixmap.width();
+        int height = pixmap.height();
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                System.out.println(y);
+                QColor color = new QColor(image.pixel(x, y));
+                int red = color.red();
+                int green = color.green();
+                int blue = color.blue();
+
+                QColor newColor = new QColor(255 - green, 255 - blue, 255 - red);
+
+                // Zeichnen Sie den Pixel mit den neuen Farbwerten
+                painter.setPen(newColor);
+                painter.drawPoint(x, y);
+            }
+
+        }
+
+        showPicture.setPixmap(pixmap);
+        painter.end();
+    }
+    }
     private void openPicture()
     {
         QFileDialog fileDialog = new QFileDialog();
@@ -110,10 +151,10 @@ public class Frame extends QThread {
         fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
         fileDialog.exec();
 
-        QFileInfo fileInfo = new QFileInfo(path.toFile().getPath());
+        fileInfo = new QFileInfo(path.toFile().getPath());
 
         if (!fileInfo.filePath().isEmpty() && isImageFile(fileInfo.filePath())) {
-            QPixmap pixmap = new QPixmap(fileInfo.filePath());
+            pixmap = new QPixmap(fileInfo.filePath());
             int height = 500;
             int width = (pixmap.width() * height) / pixmap.height();
             QSize newSize = new QSize(width,height);
