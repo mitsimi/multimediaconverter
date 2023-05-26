@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Tab anpassung">
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="invert fast fertig">
+      <change afterPath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/filters/UnschaerfeFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tabs/ConvertTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
     </list>
@@ -110,6 +116,7 @@
       <workItem from="1684733828823" duration="2137000" />
       <workItem from="1684849908548" duration="673000" />
       <workItem from="1684862395776" duration="1936000" />
+      <workItem from="1685082315936" duration="4212000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -211,7 +218,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/dev" />
+                        <option value="wernerbranch" />
                       </list>
                     </value>
                   </entry>
