@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="invert fast fertig">
-      <change afterPath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/filters/UnschaerfeFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tabs/ConvertTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Frame sehr verschönert, auslagerung in andere Klassen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +110,8 @@
       <workItem from="1684733828823" duration="2137000" />
       <workItem from="1684849908548" duration="673000" />
       <workItem from="1684862395776" duration="1936000" />
-      <workItem from="1685082315936" duration="4212000" />
+      <workItem from="1685082315936" duration="4850000" />
+      <workItem from="1685109697341" duration="496000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -181,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684856507809</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Frame sehr verschönert, auslagerung in andere Klassen">
+      <created>1685091009616</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685091009616</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +244,8 @@
     <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)&#10;- Changed File to Path" />
     <MESSAGE value="pull dev" />
     <MESSAGE value="Tab anpassung" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tab anpassung" />
+    <MESSAGE value="Frame sehr verschönert, auslagerung in andere Klassen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Frame sehr verschönert, auslagerung in andere Klassen" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

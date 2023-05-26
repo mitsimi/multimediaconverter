@@ -1,5 +1,6 @@
 package tabs;
 
+import io.qt.NonNull;
 import io.qt.core.QFileInfo;
 import io.qt.core.QSize;
 import io.qt.core.Qt;
@@ -75,7 +76,8 @@ public class EditPictureTab {
     }
     private void invertPicture() {
         if (pixmap != null) {
-            QImage image = new QImage(fileInfo.filePath());
+
+            QImage image = pixmap.toImage();
             QPainter painter = new QPainter(pixmap);
             int width = pixmap.width();
             int height = pixmap.height();
