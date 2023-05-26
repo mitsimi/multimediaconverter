@@ -1,7 +1,7 @@
 package tabs;
 
 import filters.InvertFilter;
-import io.qt.NonNull;
+import filters.SchaerfeFilter;
 import io.qt.core.QFileInfo;
 import io.qt.core.QSize;
 import io.qt.core.Qt;
@@ -14,7 +14,6 @@ public class EditPictureTab {
     private QLabel showPicture;
     QWidget tabWidget;
     private QPixmap pixmap;
-
     private Path path;
 
     private QFileInfo fileInfo;
@@ -39,7 +38,12 @@ public class EditPictureTab {
         QPushButton invert = new QPushButton("Invert", tabWidget);
         invert.clicked.connect(this, "invertPicture()");
 
+
+        QPushButton schaerfe = new QPushButton("Schärfe", tabWidget);
+        schaerfe.clicked.connect(this, "schaerfePicture()");
+
         northLayout.addWidget(invert);
+        northLayout.addWidget(schaerfe);
         centerLayout.addWidget(showPicture);
         southLayout.addWidget(pictureUpload);
         tabLayout.setAlignment(Qt.AlignmentFlag.AlignCenter);
@@ -78,6 +82,13 @@ public class EditPictureTab {
     private void invertPicture() {
         if (pixmap != null) {
             pixmap = InvertFilter.invertPixmap(pixmap);
+            showPicture.setPixmap(pixmap);
+        }
+    }
+
+    private void schaerfePicture() {
+        if (pixmap != null) {
+            pixmap = SchaerfeFilter.schaerfePixmap(pixmap);
             showPicture.setPixmap(pixmap);
         }
     }

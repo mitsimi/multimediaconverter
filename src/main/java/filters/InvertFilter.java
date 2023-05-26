@@ -26,7 +26,6 @@ public class InvertFilter {
             }
 
         }
-
         painter.end();
         return pixmap;
     }

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Invertieren von Bild funktioniert">
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Invert in eigener Klasse">
+      <change afterPath="$PROJECT_DIR$/src/main/java/filters/SchaerfeFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/UnschaerfeFilter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +114,7 @@
       <workItem from="1684849908548" duration="673000" />
       <workItem from="1684862395776" duration="1936000" />
       <workItem from="1685082315936" duration="4850000" />
-      <workItem from="1685109697341" duration="939000" />
+      <workItem from="1685109697341" duration="2114000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -191,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685110406194</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Invert in eigener Klasse">
+      <created>1685110695791</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685110695791</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +263,8 @@
     <MESSAGE value="Tab anpassung" />
     <MESSAGE value="Frame sehr verschönert, auslagerung in andere Klassen" />
     <MESSAGE value="Invertieren von Bild funktioniert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Invertieren von Bild funktioniert" />
+    <MESSAGE value="Invert in eigener Klasse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Invert in eigener Klasse" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
