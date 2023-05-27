@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="SchärfeFilter fertig">
-      <change afterPath="$PROJECT_DIR$/src/main/java/filters/KantenFilter.java" afterDir="false" />
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Fehlerprävention und verbesserung von editPicture Tab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/KantenFilter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +112,9 @@
       <workItem from="1684849908548" duration="673000" />
       <workItem from="1684862395776" duration="1936000" />
       <workItem from="1685082315936" duration="4850000" />
-      <workItem from="1685109697341" duration="3872000" />
+      <workItem from="1685109697341" duration="4915000" />
+      <workItem from="1685130825185" duration="457000" />
+      <workItem from="1685184293388" duration="5606000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -205,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685111986069</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fehlerprävention und verbesserung von editPicture Tab">
+      <created>1685116363476</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685116363477</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +279,8 @@
     <MESSAGE value="Invertieren von Bild funktioniert" />
     <MESSAGE value="Invert in eigener Klasse" />
     <MESSAGE value="SchärfeFilter fertig" />
-    <option name="LAST_COMMIT_MESSAGE" value="SchärfeFilter fertig" />
+    <MESSAGE value="Fehlerprävention und verbesserung von editPicture Tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fehlerprävention und verbesserung von editPicture Tab" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
