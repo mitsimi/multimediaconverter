@@ -13,14 +13,13 @@ import java.io.*;
 
 
 public class AudioConverter implements Converter {
-
-
+    
     private byte[] fileData = null;
     AudioType convertTo = null;
 
 
     public AudioConverter(Path path) {
-        try (FileInputStream fis = new FileInputStream(path.toAbsolutePath().toString())) {
+        try (FileInputStream fis = new FileInputStream(path.toFile())) {
             fileData = fis.readAllBytes();
         } catch (IOException e) {
             e.printStackTrace();
