@@ -8,6 +8,8 @@ public enum VideoType implements MediaType {
     AVI("avi"),
     WMV("wmv"),
     MKV("mkv");
+    //GIF - Graphics Interchange Format
+    //APNG - Animated PNG
 
     public final String fileExtension;
 

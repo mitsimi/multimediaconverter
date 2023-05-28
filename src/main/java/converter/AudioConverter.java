@@ -1,5 +1,7 @@
 package converter;
 
+import java.nio.file.Path;
+
 import types.AudioType;
 import types.MediaType;
 
@@ -9,15 +11,18 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
 
+
 public class AudioConverter implements Converter {
+
 
     private byte[] fileData = null;
     AudioType convertTo = null;
 
-    public AudioConverter(File file) throws IOException {
-        try (FileInputStream fis = new FileInputStream(file.getAbsoluteFile())) {
+
+    public AudioConverter(Path path) {
+        try (FileInputStream fis = new FileInputStream(path.toAbsolutePath().toString())) {
             fileData = fis.readAllBytes();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
