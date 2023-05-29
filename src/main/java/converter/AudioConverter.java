@@ -5,6 +5,7 @@ import java.nio.file.Path;
 
 import types.AudioType;
 import types.MediaType;
+import types.VideoType;
 import ws.schild.jave.Encoder;
 import ws.schild.jave.EncoderException;
 import ws.schild.jave.MultimediaObject;
@@ -21,19 +22,24 @@ import java.util.List;
 public class AudioConverter implements Converter {
 
     private AudioType convertTo = null;
+    private AudioType convertFrom = null;
     private AudioAttributes audioAttributes = new AudioAttributes();
     private EncodingAttributes encodingAttributes = null;
     private MultimediaObject mmsObject = null;
 
     //Unsupported meaning they cant be decoded by JAVE
-    private String[] unsupportedAudioFormats = {"aac","ogg","m4a"};
+    private String[] unsupportedAudioFormats = {"aac", "ogg", "m4a"};
 
     public AudioConverter(Path path) {
         mmsObject = new MultimediaObject(path.toFile());
+        convertFrom = AudioType.getEnum(path.toString().substring(path.toString().indexOf('.') + 1).toLowerCase());
+
+        //Test audio settings
+        setAudioAttributes(3000, 1, 44100);
     }
 
     @Override
-    public void convert(String to_type) throws IOException {
+    public void convert(String to_type) {
         convertTo = AudioType.getEnum(to_type.toLowerCase());
 
         encodingAttributes = new EncodingAttributes();
@@ -47,12 +53,18 @@ public class AudioConverter implements Converter {
         System.out.println(path);
         Encoder encoder = new Encoder();
         try {
-            if (!Arrays.stream(unsupportedAudioFormats).toList().contains(convertTo.fileExtension)) {
+            if (!Arrays.stream(unsupportedAudioFormats).toList().contains(convertTo.fileExtension) && convertFrom != convertTo) {
                 encoder.encode(mmsObject, path.toFile(), encodingAttributes);
             } else {
-                // Just changing file-endings
-                byte[] fileContent = Files.readAllBytes(mmsObject.getFile().toPath());
+                // Creating temp MP3-File with applied settings and changing it to unsupported file-ending
+                Path tempPath = Path.of(absolutePath + "/" + fileName + "2.mp3");
+                encodingAttributes.setOutputFormat("mp3");
+
+                encoder.encode(mmsObject, tempPath.toFile(), encodingAttributes);
+
+                byte[] fileContent = Files.readAllBytes(tempPath);
                 Files.write(path, fileContent, StandardOpenOption.CREATE);
+                Files.delete(tempPath);
             }
         } catch (EncoderException | IOException e) {
             throw new RuntimeException(e);
@@ -63,9 +75,5 @@ public class AudioConverter implements Converter {
         this.audioAttributes.setBitRate(bitrate);
         this.audioAttributes.setChannels(channels);
         this.audioAttributes.setSamplingRate(samplingRate);
-    }
-
-    public void setAudioAttributes(AudioAttributes audioAttributes) {
-        this.audioAttributes = audioAttributes;
     }
 }
