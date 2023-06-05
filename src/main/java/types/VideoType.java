@@ -7,7 +7,8 @@ public enum VideoType implements MediaType {
     MOV("mov"),
     AVI("avi"),
     WMV("wmv"),
-    MKV("mkv");
+    MKV("mkv"),
+    MPG("mpg");
     //GIF - Graphics Interchange Format
     //APNG - Animated PNG
 

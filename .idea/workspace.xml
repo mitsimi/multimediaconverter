@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Tab anpassung">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Fehlerprävention und verbesserung von editPicture Tab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,30 +57,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "commenting__image__converter",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;path-field-fix&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive/School/JKU/2. SEMESTER/Multimediasysteme/Projekt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="RunManager" selected="Application.StartApp">
     <configuration name="StartApp" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <envs>
         <env name="PATH" value="C:\Qt\6.5.0\msvc2019_64\bin" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="multimediaconverter" />
+      <module name="Projekt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,6 +116,10 @@
       <workItem from="1684733828823" duration="2137000" />
       <workItem from="1684849908548" duration="673000" />
       <workItem from="1684862395776" duration="1936000" />
+      <workItem from="1685082315936" duration="4850000" />
+      <workItem from="1685109697341" duration="4915000" />
+      <workItem from="1685130825185" duration="457000" />
+      <workItem from="1685184293388" duration="5606000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -176,13 +184,69 @@
       <option name="project" value="LOCAL" />
       <updated>1684856507809</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Frame sehr verschönert, auslagerung in andere Klassen">
+      <created>1685091009616</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685091009616</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Invertieren von Bild funktioniert">
+      <created>1685110406193</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685110406194</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Invert in eigener Klasse">
+      <created>1685110695791</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685110695791</updated>
+    </task>
+    <task id="LOCAL-00013" summary="SchärfeFilter fertig">
+      <created>1685111986069</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685111986069</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fehlerprävention und verbesserung von editPicture Tab">
+      <created>1685116363476</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685116363477</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="wernerbranch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -203,27 +267,6 @@
         </entry>
       </map>
     </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/dev" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setup First Project" />
@@ -237,7 +280,23 @@
     <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)&#10;- Changed File to Path" />
     <MESSAGE value="pull dev" />
     <MESSAGE value="Tab anpassung" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tab anpassung" />
+    <MESSAGE value="Frame sehr verschönert, auslagerung in andere Klassen" />
+    <MESSAGE value="Invertieren von Bild funktioniert" />
+    <MESSAGE value="Invert in eigener Klasse" />
+    <MESSAGE value="SchärfeFilter fertig" />
+    <MESSAGE value="Fehlerprävention und verbesserung von editPicture Tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fehlerprävention und verbesserung von editPicture Tab" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/converter/AudioConverter.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

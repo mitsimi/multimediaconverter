@@ -7,31 +7,17 @@ import converter.VideoConverter;
 import io.qt.core.*;
 import io.qt.gui.*;
 import io.qt.widgets.*;
+import tabs.ConvertTab;
+import tabs.EditAudioTab;
+import tabs.EditPictureTab;
+import tabs.EditVideoTab;
 import types.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class Frame extends QThread {
-    private QPixmap pixmap;
-    private Path path;
-    private QFileInfo fileInfo;
-    private MediaType mediaType;
-
-    private QLineEdit fieldFileName;
-    private QLineEdit fieldFilePath;
-    private QComboBox dropdownMenu;
-    private String selectedOption;
-    private QBoxLayout tab1Layout;
     private QFrame frame;
-    private QLabel labelName;
-    private QLabel labelPath;
-    private QLabel labelConvert;
-    private QLabel showPicture;
-    private QPushButton fileUpload;
-    private QBoxLayout tab3Layout;
-    private QPushButton fileSave;
-
 
     public void run() {
         QMetaObject.invokeMethod(this, "createFrame", Qt.ConnectionType.QueuedConnection);
@@ -45,211 +31,29 @@ public class Frame extends QThread {
         frame.setLineWidth(0);
         QVBoxLayout frameLayout = new QVBoxLayout(frame);
 
-        labelName = new QLabel("Name", frame);
-        fieldFileName = new QLineEdit(frame);
-        labelPath = new QLabel("Path", frame);
-        fieldFilePath = new QLineEdit(frame);
-        labelConvert = new QLabel("Convert to", frame);
-
-        //Button für Upload und Speicherung erstellen
-
-        fileUpload = new QPushButton("Upload File", frame);
-        fileUpload.clicked.connect(this, "openFile()");
-        fileSave = new QPushButton("Save File", frame);
-        fileSave.clicked.connect(this, "saveFile()");
-
-        //Dropdown Menü erstellen
-        dropdownMenu = new QComboBox(frame);
-        dropdownMenu.currentIndexChanged.connect(this, "handleDropdownSelection(int)");
-
         QTabWidget tabWidget = new QTabWidget();
 
-        // Tabs erstellen und hinzufügen
-        QWidget tab0 = new QWidget();
-        QVBoxLayout tab0Layout = new QVBoxLayout(tab0);
+        // Tabs erzeugen
+        ConvertTab convertTab = new ConvertTab();
+        QWidget tab0 = convertTab.createTabWidget();
         tabWidget.addTab(tab0, "Convert");
 
-        tab0Layout.addWidget(labelName);
-        tab0Layout.addWidget(fieldFileName);
-        tab0Layout.addWidget(labelPath);
-        tab0Layout.addWidget(fieldFilePath);
-        tab0Layout.addWidget(fileUpload);
-        tab0Layout.addWidget(fileSave);
-        tab0Layout.addWidget(labelConvert);
-        tab0Layout.addWidget(dropdownMenu);
-
-        QWidget tab1 = new QWidget();
-        QVBoxLayout tab1Layout = new QVBoxLayout(tab1);
+        EditPictureTab pictureTab = new EditPictureTab();
+        QWidget tab1 = pictureTab.createTabWidget();
         tabWidget.addTab(tab1, "Edit: Picture");
 
-        QPushButton pictureUpload = new QPushButton("Upload Picture", frame);
-        pictureUpload.clicked.connect(this, "openPicture()");
-        showPicture = new QLabel(frame);
-
-        QHBoxLayout northLayout = new QHBoxLayout();
-        QHBoxLayout centerLayout = new QHBoxLayout();
-        QHBoxLayout southLayout = new QHBoxLayout();
-
-        tab1Layout.addLayout(northLayout);
-        tab1Layout.addLayout(centerLayout);
-        tab1Layout.addLayout(southLayout);
-
-        QPushButton invert = new QPushButton("Invert", frame);
-        invert.clicked.connect(this, "invertPicture()");
-
-        northLayout.addWidget(invert);
-        centerLayout.addWidget(showPicture);
-        southLayout.addWidget(pictureUpload);
-        tab1Layout.setAlignment(Qt.AlignmentFlag.AlignCenter);
-
-        QWidget tab2 = new QWidget();
-        QVBoxLayout tab2Layout = new QVBoxLayout(tab2);
+        EditAudioTab audioTab = new EditAudioTab();
+        QWidget tab2 = audioTab.createTabWidget();
         tabWidget.addTab(tab2, "Edit: Audio");
 
-        QWidget tab3 = new QWidget();
-        QVBoxLayout tab3Layout = new QVBoxLayout(tab3);
+        EditVideoTab videoTab = new EditVideoTab();
+        QWidget tab3 = videoTab.createTabWidget();
         tabWidget.addTab(tab3, "Edit: Video");
 
+        // Tabs hinzufügen
         frameLayout.addWidget(tabWidget);
-
 
         // Frame anzeigen
         frame.show();
-    }
-    private void invertPicture() {
-        if (pixmap != null)
-        {
-            QImage image = new QImage(fileInfo.filePath());
-            QPainter painter = new QPainter(pixmap);
-        int width = pixmap.width();
-        int height = pixmap.height();
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                System.out.println(y);
-                QColor color = new QColor(image.pixel(x, y));
-                int red = color.red();
-                int green = color.green();
-                int blue = color.blue();
-
-                QColor newColor = new QColor(255 - green, 255 - blue, 255 - red);
-
-                // Zeichnen Sie den Pixel mit den neuen Farbwerten
-                painter.setPen(newColor);
-                painter.drawPoint(x, y);
-            }
-
-        }
-
-        showPicture.setPixmap(pixmap);
-        painter.end();
-    }
-    }
-    private void openPicture()
-    {
-        QFileDialog fileDialog = new QFileDialog();
-        fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
-        fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
-        fileDialog.exec();
-
-        fileInfo = new QFileInfo(path.toFile().getPath());
-
-        if (!fileInfo.filePath().isEmpty() && isImageFile(fileInfo.filePath())) {
-            pixmap = new QPixmap(fileInfo.filePath());
-            int height = 500;
-            int width = (pixmap.width() * height) / pixmap.height();
-            QSize newSize = new QSize(width,height);
-            pixmap = pixmap.scaled(newSize);
-            showPicture.setPixmap(pixmap);
-        } else {
-            QMessageBox.warning(frame, "Invalid Image", "Selected file is not a valid image.");
-        }
-    }
-    private boolean isImageFile(String filePath) {
-        QImageReader imageReader = new QImageReader(filePath);
-        return imageReader.canRead();
-    }
-    // TODO - Rewrite this method to be more generic
-    private void saveFile() throws IOException {
-
-        Converter converter;
-
-        // Create converter
-        if (mediaType.getClass().equals(ImageType.class)) {
-            converter = new ImageConverter(path);
-        } else if (mediaType.getClass().equals(AudioType.class)) {
-            converter = new AudioConverter(path);
-        } else if (mediaType.getClass().equals(VideoType.class)) {
-            converter = new VideoConverter(path);
-        } else { // so that the compiler shuts up
-            converter = new Converter() {
-                @Override
-                public void convert(String to_type) throws IOException {
-                    throw new UnsupportedFileTypeException("Unsupported file type");
-                }
-
-                @Override
-                public void save(String absolutePath, String fileName) throws IOException {
-                    throw new UnsupportedFileTypeException("Unsupported file type");
-                }
-            };
-        }
-
-        // Convert into selected format
-        converter.convert(selectedOption);
-
-        //Save converted file
-        converter.save(fieldFilePath.text(), fieldFileName.text());
-    }
-
-    private void openFile() {
-        QFileDialog fileDialog = new QFileDialog();
-        fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
-        fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
-        fileDialog.exec();
-
-        fileInfo = new QFileInfo(path.toFile().getPath());
-        String fileType = fileInfo.completeSuffix();
-
-        // Set the file name and path based on the selected file
-        fieldFileName.setText(fileInfo.baseName());
-        fieldFilePath.setText(fileInfo.absoluteDir().absolutePath());
-
-        dropdownMenu.clear();
-        loadDropdownOptions();
-    }
-
-    /* TODO - other approach needed.
-        Converting from raw files not possible because they are not supported for conversion TO them.
-     */
-    private void loadDropdownOptions() {
-        String fileType = fileInfo.completeSuffix().toLowerCase();
-        // Load the dropdown options based on the file type
-        // HELP - May need to be changed for a faster approach
-        if (AudioType.contains(fileType)) {
-            mediaType = AudioType.getEnum(fileType);
-            for ( AudioType type : AudioType.values() ) {
-                dropdownMenu.addItem(type.toString());
-            }
-        } else if (VideoType.contains(fileType)) {
-            mediaType = VideoType.getEnum(fileType);
-            for ( VideoType type : VideoType.values() ) {
-                dropdownMenu.addItem(type.toString());
-            }
-        } else if (ImageType.contains(fileType)) {
-            mediaType = ImageType.getEnum(fileType);
-            for ( ImageType type : ImageType.values() ) {
-                dropdownMenu.addItem(type.toString());
-            }
-            selectedOption = String.valueOf(ImageType.JPEG);
-        }
-    }
-
-    private void handleSelectedFile(String filePath) {
-        // Handle the selected file path here
-        path = Path.of(filePath);
-    }
-
-    private void handleDropdownSelection(int index) {
-        selectedOption = dropdownMenu.itemText(index);
     }
 }
