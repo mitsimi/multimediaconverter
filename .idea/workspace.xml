@@ -75,7 +75,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.StartApp">
     <configuration name="StartApp" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="19" />
