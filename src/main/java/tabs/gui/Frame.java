@@ -1,4 +1,4 @@
-package gui;
+package tabs.gui;
 
 import converter.AudioConverter;
 import converter.Converter;

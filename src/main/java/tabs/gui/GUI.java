@@ -1,8 +1,6 @@
-package gui;
+package tabs.gui;
 
-import io.qt.core.QThread;
 import io.qt.widgets.QApplication;
-import io.qt.widgets.QMessageBox;
 
 
 public class GUI {
