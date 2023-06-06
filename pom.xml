@@ -34,6 +34,28 @@
             <artifactId>jave-all-deps</artifactId>
             <version>3.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>io.qtjambi</groupId>
+            <artifactId>qtjambi-multimedia</artifactId>
+            <version>6.5.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qtjambi</groupId>
+            <artifactId>qtjambi-multimedia-native-windows-x64</artifactId>
+            <version>6.5.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qtjambi</groupId>
+            <artifactId>qtjambi-multimediawidgets</artifactId>
+            <version>6.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qtjambi</groupId>
+            <artifactId>qtjambi-multimediawidgets-native-windows-x64</artifactId>
+            <version>6.5.0</version>
+        </dependency>
     </dependencies>
 
     <properties>
