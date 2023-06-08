@@ -5,8 +5,8 @@ import io.qt.gui.QImage;
 import io.qt.gui.QPainter;
 import io.qt.gui.QPixmap;
 
-public class InvertFilter {
-    public static QPixmap invertPixmap(QPixmap pixmap){
+public class InvertFilter implements Filter{
+    public static QPixmap apply(QPixmap pixmap){
         QImage image = pixmap.toImage();
         QPainter painter = new QPainter(pixmap);
         int width = pixmap.width();

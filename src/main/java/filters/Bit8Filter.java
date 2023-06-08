@@ -5,18 +5,18 @@ import io.qt.gui.QImage;
 import io.qt.gui.QPainter;
 import io.qt.gui.QPixmap;
 
-public class Bit8Filter {
-    public static QPixmap colorizePixmap(QPixmap pixmap){
+public class Bit8Filter implements Filter {
+    public static QPixmap apply(QPixmap pixmap){
         QImage image = pixmap.toImage();
         QPainter painter = new QPainter(pixmap);
-        int width = pixmap.width();
-        int height = pixmap.height();
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                int bitColor = EightBit.fromColor(new QColor(image.pixel(x, y)));
 
+        for (int x = 0; x < pixmap.width(); x++) {
+            for (int y = 0; y < pixmap.height(); y++) {
+
+                int bitColor = EightBit.fromColor(new QColor(image.pixel(x, y)));
                 painter.setPen(EightBit.toColor(bitColor));
                 painter.drawPoint(x, y);
+
             }
 
         }
@@ -25,7 +25,7 @@ public class Bit8Filter {
         return pixmap;
     }
 
-    abstract class EightBit {
+    private static class EightBit {
         public static int fromColor(QColor c) {
             return ((c.alpha() >> 6) << 6)
                     + ((c.red()   >> 6) << 4)
