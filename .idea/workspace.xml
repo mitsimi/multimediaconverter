@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Imported javacv for OpenCV and FFMPEG, closes #4">
-      <change afterPath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/converter/Converter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/converter/ImageConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" afterDir="false" />
+    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/convert/Converter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/convert/ImageConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/picture/PictureConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/AudioType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/ImageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/MediaType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/MediaType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/VideoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/gui/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +30,19 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="convert-base" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="qzu8g9x4" />
@@ -61,28 +61,13 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2PeuwYpiXvWfz1qSsnpoI10ZbVV" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "convert-base",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
   <component name="RunManager" selected="Application.StartApp">
     <configuration name="StartApp" type="Application" factoryName="Application">
       <envs>
@@ -118,6 +103,9 @@
       <option name="presentableId" value="Default" />
       <updated>1683830107919</updated>
       <workItem from="1684431096094" duration="193000" />
+      <workItem from="1684733828823" duration="2137000" />
+      <workItem from="1684849908548" duration="673000" />
+      <workItem from="1684862395776" duration="1936000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -168,7 +156,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684440277019</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="pull dev">
+      <created>1684684632695</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684684632695</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tab anpassung">
+      <created>1684856507809</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684856507809</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +181,39 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev-setup" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -193,7 +227,11 @@
     <MESSAGE value="Basic structure" />
     <MESSAGE value="Enums for supported file extensions" />
     <MESSAGE value="Imported javacv for OpenCV and FFMPEG, closes #4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imported javacv for OpenCV and FFMPEG, closes #4" />
+    <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)" />
+    <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)&#10;- Changed File to Path" />
+    <MESSAGE value="pull dev" />
+    <MESSAGE value="Tab anpassung" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tab anpassung" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

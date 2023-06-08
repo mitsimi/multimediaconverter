@@ -1,6 +1,4 @@
-import gui.GUI;
-import io.qt.widgets.QApplication;
-import io.qt.widgets.QMessageBox;
+import tabs.gui.GUI;
 
 public class Main {
     public static void main(String[] args) {
