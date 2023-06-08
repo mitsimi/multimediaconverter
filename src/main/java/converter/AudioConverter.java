@@ -66,7 +66,6 @@ public class AudioConverter implements Converter {
     public void save(String absolutePath, String fileName) {
         Path destinPath = Path.of(absolutePath + fileName + "." + convertTo.fileExtension);
         boolean fileTypesEqual = (sourceFile.toFile().getAbsolutePath().equals(destinPath.toFile().getAbsolutePath()));
-        System.out.println(sourceFile.toFile().getAbsolutePath() + "___" + (destinPath.toFile().getAbsolutePath()) + " " + fileTypesEqual);
 
         String tempFileName = fileName;
         if (fileTypesEqual) {
@@ -99,7 +98,6 @@ public class AudioConverter implements Converter {
             if (fileTypesEqual) {
                 File hashFile = path.toFile();
                 File destFile = destinPath.toFile();
-                System.out.println(hashFile.getAbsolutePath() + " " + destFile.getAbsolutePath());
                 destFile.delete();
                 hashFile.renameTo(destFile);
             }

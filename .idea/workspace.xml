@@ -7,7 +7,7 @@
     <list default="true" id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="Fehlerprävention und verbesserung von editPicture Tab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/AudioConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/ConvertTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/ConvertTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;path-field-fix&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive/School/JKU/2. SEMESTER/Multimediasysteme/Projekt&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive/School/JKU/2. SEMESTER/Betriebssysteme/UEs/UE05 06.06.23/PRBS_ue05_k12206097&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
