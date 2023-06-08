@@ -9,10 +9,6 @@ import io.qt.core.Qt;
 import io.qt.gui.*;
 import io.qt.widgets.*;
 
-import javax.imageio.ImageIO;
-import java.awt.image.RenderedImage;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -20,7 +16,6 @@ public class EditPictureTab {
     private QLabel showPicture;
     QWidget tabWidget;
     private QPixmap pixmap;
-    private QPixmap originalPixmap;
     private Path path;
 
     private QFileInfo fileInfo;
@@ -65,7 +60,7 @@ public class EditPictureTab {
         QPushButton resize = new QPushButton("Resize", tabWidget);
         resize.clicked.connect(() -> {
             String heightText = setHeight.text();
-            if (heightText != null && !heightText.isEmpty()) {
+            if (!heightText.isEmpty()) {
                 int height = Integer.parseInt(heightText);
                 resizePicture(height);
             }
@@ -87,11 +82,9 @@ public class EditPictureTab {
         return tabWidget;
     }
 
-    private void savePicture() throws IOException {
+    private void savePicture() {
         QImage image = pixmap.toImage();
-        System.out.print(fileInfo.absolutePath());
         image.save(fileInfo.absolutePath()+fileInfo.baseName()+"new."+fileInfo.completeSuffix().toLowerCase());
-
     }
 
 
@@ -160,7 +153,7 @@ public class EditPictureTab {
         pixmap =  switch (filter) {
             case "Invert" -> InvertFilter.invertPixmap(pixmap);
             case "Sharp" -> SchaerfeFilter.schaerfePixmap(pixmap);
-            case "Bit" -> Bit8Filter.colorizePixmap(pixmap);
+            case "Bit" -> Bit8Filter.recolorPixmap(pixmap);
             default -> throw new IllegalStateException("Unexpected value: " + filter);
         };
 
