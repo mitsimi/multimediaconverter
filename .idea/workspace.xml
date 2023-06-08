@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/qtjambi_native_windows_x64_6_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/filters/HellFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/filters/WatermarkFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/gui/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multimediaconverter.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +69,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/werne/.m2/repository/io/qtjambi/qtjambi-multimedia-native-windows-x64&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RunManager" selected="Application.StartApp">
     <configuration name="StartApp" type="Application" factoryName="Application">
       <envs>
@@ -97,7 +111,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="" />
+      <changelist id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="" />
       <created>1683830107919</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -106,6 +120,9 @@
       <workItem from="1684733828823" duration="2137000" />
       <workItem from="1684849908548" duration="673000" />
       <workItem from="1684862395776" duration="1936000" />
+      <workItem from="1686065885017" duration="2845000" />
+      <workItem from="1686080202072" duration="2102000" />
+      <workItem from="1686149158952" duration="21447000" />
     </task>
     <task id="LOCAL-00001" summary="Setup First Project">
       <created>1684168162931</created>
@@ -177,6 +194,26 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev-setup" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -198,26 +235,6 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/dev" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/dev-setup" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setup First Project" />
@@ -232,6 +249,16 @@
     <MESSAGE value="pull dev" />
     <MESSAGE value="Tab anpassung" />
     <option name="LAST_COMMIT_MESSAGE" value="Tab anpassung" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="io.qt.QLibraryNotFoundError" package="io.qt" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

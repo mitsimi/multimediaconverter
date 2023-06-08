@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="qtjambi-native-windows-x64-6.5.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/qtjambi/qtjambi-native-windows-x64/6.5.0/qtjambi-native-windows-x64-6.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

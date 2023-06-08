@@ -1,7 +1,9 @@
 package tabs;
 
+import filters.HellFilter;
 import filters.InvertFilter;
 import filters.SchaerfeFilter;
+import filters.WatermarkFilter;
 import io.qt.core.QFileInfo;
 import io.qt.core.QSize;
 import io.qt.core.Qt;
@@ -17,6 +19,8 @@ import java.nio.file.Path;
 
 public class EditPictureTab {
     private QLabel showPicture;
+    private QSlider slider;
+    private int oldBrightness = 0;
     QWidget tabWidget;
     private QPixmap pixmap;
     private QPixmap originalPixmap;
@@ -41,12 +45,14 @@ public class EditPictureTab {
         QHBoxLayout northLayout = new QHBoxLayout();
         QHBoxLayout centerLayout = new QHBoxLayout();
         QHBoxLayout southLayout = new QHBoxLayout();
-        QHBoxLayout eastLayout = new QHBoxLayout();
+        QHBoxLayout bottomLayout = new QHBoxLayout();
+        QHBoxLayout brightnessLayout = new QHBoxLayout();
 
         tabLayout.addLayout(northLayout);
         tabLayout.addLayout(centerLayout);
         tabLayout.addLayout(southLayout);
-        tabLayout.addLayout(eastLayout);
+        tabLayout.addLayout(bottomLayout);
+        tabLayout.addLayout(brightnessLayout);
 
 
         QPushButton invert = new QPushButton("Invert", tabWidget);
@@ -54,6 +60,9 @@ public class EditPictureTab {
 
         QPushButton schaerfe = new QPushButton("Schärfe", tabWidget);
         schaerfe.clicked.connect(() -> filterPicture("Schärfen"));
+
+        QPushButton watermark = new QPushButton("Wasserzeichen", tabWidget);
+        watermark.clicked.connect(() -> filterPicture("Wasserzeichen"));
 
         QLabel labelHeight = new QLabel("Höhe [100 < px > 800]", tabWidget);
         QLineEdit setHeight = new QLineEdit(tabWidget);
@@ -67,16 +76,28 @@ public class EditPictureTab {
             }
         });
 
+        slider = new QSlider(Qt.Orientation.Horizontal);
+        slider.setMinimum(-100);
+        slider.setMaximum(100);
+        slider.setSingleStep(10);
+        slider.setTickInterval(10);
+        slider.setTickPosition(QSlider.TickPosition.TicksBothSides);
+        slider.sliderReleased.connect(this, "updateValue()");
+
         northLayout.addWidget(invert);
         northLayout.addWidget(schaerfe);
+        northLayout.addWidget(watermark);
 
         centerLayout.addWidget(showPicture);
+        centerLayout.setAlignment(Qt.AlignmentFlag.AlignCenter);
         southLayout.addWidget(pictureUpload);
         southLayout.addWidget(reset);
         southLayout.addWidget(save);
-        eastLayout.addWidget(labelHeight);
-        eastLayout.addWidget(setHeight);
-        eastLayout.addWidget(resize);
+        bottomLayout.addWidget(labelHeight);
+        bottomLayout.addWidget(setHeight);
+        bottomLayout.addWidget(resize);
+
+        brightnessLayout.addWidget(slider);
         tabLayout.setAlignment(Qt.AlignmentFlag.AlignCenter);
 
         return tabWidget;
@@ -104,6 +125,7 @@ public class EditPictureTab {
     private void resetPicture() {
         if(pixmap != null)
         {
+            oldBrightness = 0;
             pixmap = new QPixmap(fileInfo.filePath());
             int height = 500;
             int width = (pixmap.width() * height) / pixmap.height();
@@ -154,7 +176,24 @@ public class EditPictureTab {
             } else if (filter.equals("Schärfen")) {
                 pixmap = SchaerfeFilter.schaerfePixmap(pixmap);
             }
+         else if (filter.equals("Wasserzeichen")) {
+            pixmap = WatermarkFilter.watermarkPixmap(pixmap);
+        }
             showPicture.setPixmap(pixmap);
         }
+    }
+    private void updateValue()
+    {
+        if(pixmap != null)
+        {
+            int newBrightness = slider.value();
+            newBrightness = newBrightness - oldBrightness;
+
+            pixmap = HellFilter.hellPixmap(pixmap, newBrightness);
+            showPicture.setPixmap(pixmap);
+            oldBrightness = newBrightness;
+        }
+
+
     }
 }
