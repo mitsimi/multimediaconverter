@@ -1,6 +1,7 @@
 package tabs;
 
 import filters.Bit8Filter;
+import filters.DitheringFilter;
 import filters.InvertFilter;
 import filters.SchaerfeFilter;
 import io.qt.core.QFileInfo;
@@ -53,27 +54,31 @@ public class EditPictureTab {
         QPushButton invert = new QPushButton("Invert", tabWidget);
         invert.clicked.connect(() -> filterPicture("Invert"));
 
-        QPushButton schaerfe = new QPushButton("Schärfe", tabWidget);
-        schaerfe.clicked.connect(() -> filterPicture("Sharp"));
+        QPushButton sharp = new QPushButton("Sharping", tabWidget);
+        sharp.clicked.connect(() -> filterPicture("Sharp"));
 
         QPushButton bit = new QPushButton("8-Bit", tabWidget);
         bit.clicked.connect(() -> filterPicture("Bit"));
 
-        QLabel labelHeight = new QLabel("Höhe [100 < px > 800]", tabWidget);
+        QPushButton dithering = new QPushButton("Dithering", tabWidget);
+        dithering.clicked.connect(() -> filterPicture("Dithering"));
+
+        QLabel labelHeight = new QLabel("Height [100 < px > 800]", tabWidget);
         QLineEdit setHeight = new QLineEdit(tabWidget);
         setHeight.setValidator(new QIntValidator(setHeight));
         QPushButton resize = new QPushButton("Resize", tabWidget);
         resize.clicked.connect(() -> {
             String heightText = setHeight.text();
-            if (heightText != null && !heightText.isEmpty()) {
+            if (!heightText.isEmpty()) {
                 int height = Integer.parseInt(heightText);
                 resizePicture(height);
             }
         });
 
         northLayout.addWidget(invert);
-        northLayout.addWidget(schaerfe);
+        northLayout.addWidget(sharp);
         northLayout.addWidget(bit);
+        northLayout.addWidget(dithering);
 
         centerLayout.addWidget(showPicture);
         southLayout.addWidget(pictureUpload);
@@ -161,6 +166,7 @@ public class EditPictureTab {
             case "Invert" -> InvertFilter.invertPixmap(pixmap);
             case "Sharp" -> SchaerfeFilter.schaerfePixmap(pixmap);
             case "Bit" -> Bit8Filter.colorizePixmap(pixmap);
+            case "Dithering" -> DitheringFilter.ditherPixmap(pixmap);
             default -> throw new IllegalStateException("Unexpected value: " + filter);
         };
 
