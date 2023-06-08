@@ -1,5 +1,6 @@
 package tabs;
 
+import filters.Bit8Filter;
 import filters.InvertFilter;
 import filters.SchaerfeFilter;
 import io.qt.core.QFileInfo;
@@ -50,10 +51,13 @@ public class EditPictureTab {
 
 
         QPushButton invert = new QPushButton("Invert", tabWidget);
-        invert.clicked.connect(() -> filterPicture("Invertieren"));
+        invert.clicked.connect(() -> filterPicture("Invert"));
 
         QPushButton schaerfe = new QPushButton("Schärfe", tabWidget);
-        schaerfe.clicked.connect(() -> filterPicture("Schärfen"));
+        schaerfe.clicked.connect(() -> filterPicture("Sharp"));
+
+        QPushButton bit = new QPushButton("8-Bit", tabWidget);
+        bit.clicked.connect(() -> filterPicture("Bit"));
 
         QLabel labelHeight = new QLabel("Höhe [100 < px > 800]", tabWidget);
         QLineEdit setHeight = new QLineEdit(tabWidget);
@@ -69,6 +73,7 @@ public class EditPictureTab {
 
         northLayout.addWidget(invert);
         northLayout.addWidget(schaerfe);
+        northLayout.addWidget(bit);
 
         centerLayout.addWidget(showPicture);
         southLayout.addWidget(pictureUpload);
@@ -148,13 +153,17 @@ public class EditPictureTab {
 
     private void filterPicture(String filter)
     {
-        if (pixmap != null) {
-            if (filter.equals("Invertieren")) {
-                pixmap = InvertFilter.invertPixmap(pixmap);
-            } else if (filter.equals("Schärfen")) {
-                pixmap = SchaerfeFilter.schaerfePixmap(pixmap);
-            }
-            showPicture.setPixmap(pixmap);
+        if (pixmap == null) {
+            return;
         }
+
+        pixmap =  switch (filter) {
+            case "Invert" -> InvertFilter.invertPixmap(pixmap);
+            case "Sharp" -> SchaerfeFilter.schaerfePixmap(pixmap);
+            case "Bit" -> Bit8Filter.colorizePixmap(pixmap);
+            default -> throw new IllegalStateException("Unexpected value: " + filter);
+        };
+
+        showPicture.setPixmap(pixmap);
     }
 }
