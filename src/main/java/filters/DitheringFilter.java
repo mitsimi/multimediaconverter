@@ -7,7 +7,6 @@ import io.qt.gui.QPixmap;
 
 import java.awt.*;
 
-// Floyd Steinberg Dithering
 public class DitheringFilter implements Filter {
     public static QPixmap apply(QPixmap pixmap){
         QImage image = pixmap.toImage();
@@ -26,18 +25,21 @@ public class DitheringFilter implements Filter {
                 new Color(255, 255, 255)  // white
         };
 
-        Color[][] d = new Color[height][width];
+        // Creating new pixel array which represents more or less the whole picture
+        Color[][] dither = new Color[width][height];
 
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                d[y][x] = new Color(image.pixelColor(x, y).rgb());
+        // Fill the 2-dimensional array with the pixel color information of the original image
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                dither[x][y] = new Color(image.pixelColor(x, y).rgb());
             }
         }
 
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        // Apply dither effect
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
 
-                Color oldColor = d[y][x];
+                Color oldColor = dither[x][y];
                 Color newColor = findClosestPaletteColor(oldColor, palette);
 
                 painter.setPen(newColor.toQColor());
@@ -45,20 +47,22 @@ public class DitheringFilter implements Filter {
 
                 Color err = oldColor.sub(newColor);
 
+
+                // Add error pixels
                 if (x + 1 < width) {
-                    d[y][x + 1] = d[y][x + 1].add(err.mul(7. / 16));
+                    dither[x + 1][y] = dither[x + 1][y].add(err.mul(7. / 16));
                 }
 
                 if (x - 1 >= 0 && y + 1 < height) {
-                    d[y + 1][x - 1] = d[y + 1][x - 1].add(err.mul(3. / 16));
+                    dither[x - 1][y + 1] = dither[x - 1][y + 1].add(err.mul(3. / 16));
                 }
 
                 if (y + 1 < height) {
-                    d[y + 1][x] = d[y + 1][x].add(err.mul(5. / 16));
+                    dither[x][y + 1] = dither[x][y + 1].add(err.mul(5. / 16));
                 }
 
                 if (x + 1 < width && y + 1 < height) {
-                    d[y + 1][x + 1] = d[y + 1][x + 1].add(err.mul(1. / 16));
+                    dither[x + 1][y + 1] = dither[x + 1][y + 1].add(err.mul(1. / 16));
                 }
             }
         }
