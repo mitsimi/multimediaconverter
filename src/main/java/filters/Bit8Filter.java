@@ -5,8 +5,8 @@ import io.qt.gui.QImage;
 import io.qt.gui.QPainter;
 import io.qt.gui.QPixmap;
 
-public class Bit8Filter {
-    public static QPixmap recolorPixmap(QPixmap pixmap){
+public class Bit8Filter implements Filter {
+    public static QPixmap apply(QPixmap pixmap){
         QImage image = pixmap.toImage();
         QPainter painter = new QPainter(pixmap);
 

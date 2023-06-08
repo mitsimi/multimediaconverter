@@ -163,10 +163,10 @@ public class EditPictureTab {
         }
 
         pixmap =  switch (filter) {
-            case "Invert" -> InvertFilter.invertPixmap(pixmap);
-            case "Sharp" -> SchaerfeFilter.schaerfePixmap(pixmap);
-            case "Bit" -> Bit8Filter.colorizePixmap(pixmap);
-            case "Dithering" -> DitheringFilter.ditherPixmap(pixmap);
+            case "Invert" -> InvertFilter.apply(pixmap);
+            case "Sharp" -> SchaerfeFilter.apply(pixmap);
+            case "Bit" -> Bit8Filter.apply(pixmap);
+            case "Dithering" -> DitheringFilter.apply(pixmap);
             default -> throw new IllegalStateException("Unexpected value: " + filter);
         };
 

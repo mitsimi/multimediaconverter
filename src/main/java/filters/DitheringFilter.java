@@ -8,8 +8,8 @@ import io.qt.gui.QPixmap;
 import java.awt.*;
 
 // Floyd Steinberg Dithering
-public class DitheringFilter {
-    public static QPixmap ditherPixmap(QPixmap pixmap){
+public class DitheringFilter implements Filter {
+    public static QPixmap apply(QPixmap pixmap){
         QImage image = pixmap.toImage();
         QPainter painter = new QPainter(pixmap);
         int width = pixmap.width();
