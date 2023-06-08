@@ -1,6 +1,7 @@
 package tabs;
 
 import filters.Bit8Filter;
+import filters.DitheringFilter;
 import filters.InvertFilter;
 import filters.SchaerfeFilter;
 import io.qt.core.QFileInfo;
@@ -9,6 +10,10 @@ import io.qt.core.Qt;
 import io.qt.gui.*;
 import io.qt.widgets.*;
 
+import javax.imageio.ImageIO;
+import java.awt.image.RenderedImage;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -16,6 +21,7 @@ public class EditPictureTab {
     private QLabel showPicture;
     QWidget tabWidget;
     private QPixmap pixmap;
+    private QPixmap originalPixmap;
     private Path path;
 
     private QFileInfo fileInfo;
@@ -48,13 +54,16 @@ public class EditPictureTab {
         QPushButton invert = new QPushButton("Invert", tabWidget);
         invert.clicked.connect(() -> filterPicture("Invert"));
 
-        QPushButton schaerfe = new QPushButton("Schärfe", tabWidget);
-        schaerfe.clicked.connect(() -> filterPicture("Sharp"));
+        QPushButton sharp = new QPushButton("Sharping", tabWidget);
+        sharp.clicked.connect(() -> filterPicture("Sharp"));
 
         QPushButton bit = new QPushButton("8-Bit", tabWidget);
         bit.clicked.connect(() -> filterPicture("Bit"));
 
-        QLabel labelHeight = new QLabel("Höhe [100 < px > 800]", tabWidget);
+        QPushButton dithering = new QPushButton("Dithering", tabWidget);
+        dithering.clicked.connect(() -> filterPicture("Dithering"));
+
+        QLabel labelHeight = new QLabel("Height [100 < px > 800]", tabWidget);
         QLineEdit setHeight = new QLineEdit(tabWidget);
         setHeight.setValidator(new QIntValidator(setHeight));
         QPushButton resize = new QPushButton("Resize", tabWidget);
@@ -67,8 +76,9 @@ public class EditPictureTab {
         });
 
         northLayout.addWidget(invert);
-        northLayout.addWidget(schaerfe);
+        northLayout.addWidget(sharp);
         northLayout.addWidget(bit);
+        northLayout.addWidget(dithering);
 
         centerLayout.addWidget(showPicture);
         southLayout.addWidget(pictureUpload);
@@ -82,9 +92,11 @@ public class EditPictureTab {
         return tabWidget;
     }
 
-    private void savePicture() {
+    private void savePicture() throws IOException {
         QImage image = pixmap.toImage();
+        System.out.print(fileInfo.absolutePath());
         image.save(fileInfo.absolutePath()+fileInfo.baseName()+"new."+fileInfo.completeSuffix().toLowerCase());
+
     }
 
 
@@ -153,7 +165,8 @@ public class EditPictureTab {
         pixmap =  switch (filter) {
             case "Invert" -> InvertFilter.invertPixmap(pixmap);
             case "Sharp" -> SchaerfeFilter.schaerfePixmap(pixmap);
-            case "Bit" -> Bit8Filter.recolorPixmap(pixmap);
+            case "Bit" -> Bit8Filter.colorizePixmap(pixmap);
+            case "Dithering" -> DitheringFilter.ditherPixmap(pixmap);
             default -> throw new IllegalStateException("Unexpected value: " + filter);
         };
 
