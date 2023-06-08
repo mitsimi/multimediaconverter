@@ -129,7 +129,7 @@ public class VideoConverter implements Converter {
      * Sets the audio-attributes with the given settings.
      *
      * @param bitrate      The bitrate of the Audio (bit/s)
-     * @param channels     The channels of the Audio (1=Mono, 2=Stereo)
+     * @param channels     The channel-count of the Audio (1=Mono, 2=Stereo)
      * @param samplingRate The sampling-rate of the Audio (Hz)
      */
     public void setAudioAttributes(int bitrate, int channels, int samplingRate) {
@@ -152,7 +152,7 @@ public class VideoConverter implements Converter {
             if (vi.getFrameRate() != -1) {
                 this.videoAttributes.setFrameRate((int) vi.getFrameRate());
             } else {
-                this.videoAttributes.setBitRate(30);
+                this.videoAttributes.setFrameRate(30);
             }
 
             if (vi.getSize() != null) {
@@ -167,7 +167,7 @@ public class VideoConverter implements Converter {
             if (ai.getBitRate() != -1) {
                 this.audioAttributes.setBitRate(ai.getBitRate());
             } else {
-                this.audioAttributes.setBitRate(256000);
+                this.audioAttributes.setBitRate(265000);
             }
 
             if (ai.getChannels() != -1) {
@@ -179,7 +179,7 @@ public class VideoConverter implements Converter {
             if (ai.getSamplingRate() != -1) {
                 this.audioAttributes.setSamplingRate(ai.getSamplingRate());
             } else {
-                this.audioAttributes.setSamplingRate(48000);
+                this.audioAttributes.setSamplingRate(44100);
             }
         } catch (EncoderException e) {
             throw new RuntimeException(e);

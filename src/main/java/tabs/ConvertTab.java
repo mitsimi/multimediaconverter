@@ -59,10 +59,7 @@ public class ConvertTab {
     }
     private void handleSelectedFile(String filePath) {
         // Handle the selected file path here
-        
             path = Path.of(filePath);
-
-
     }
 
     private void handleDropdownSelection(int index) {
@@ -107,10 +104,6 @@ public class ConvertTab {
             fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
             fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
             fileDialog.exec();
-
-           if(path==null){
-               return;
-           }
 
             fileInfo = new QFileInfo(path.toFile().getPath());
             String fileType = fileInfo.completeSuffix();
