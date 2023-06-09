@@ -181,31 +181,35 @@ public class EditAudioTab {
     }
 
     private void encode() {
-        try {
-            //accepts setting
-            File source = path.toFile();
-            MultimediaObject audio = new MultimediaObject(source);
-            File target = new File(TEMPFILE_PATH);
+        if(path != null)
+        {
+            try {
+                //accepts setting
+                File source = path.toFile();
+                MultimediaObject audio = new MultimediaObject(source);
+                File target = new File(TEMPFILE_PATH);
 
-            AudioInfo audioInfo = audio.getInfo().getAudio();
-            AudioAttributes audioAtr = new AudioAttributes();
-            audioAtr.setBitRate(Integer.parseInt(setBitRate.getText()));
-            audioAtr.setSamplingRate(Integer.parseInt(setSampleRate.getText()));
-            audioAtr.setChannels(dropDown.getCurrentIndex()+1);
-            audioAtr.setVolume(Integer.parseInt(setVolume.getText()));
+                AudioInfo audioInfo = audio.getInfo().getAudio();
+                AudioAttributes audioAtr = new AudioAttributes();
+                audioAtr.setBitRate(Integer.parseInt(setBitRate.getText()));
+                audioAtr.setSamplingRate(Integer.parseInt(setSampleRate.getText()));
+                audioAtr.setChannels(dropDown.getCurrentIndex()+1);
+                audioAtr.setVolume(Integer.parseInt(setVolume.getText()));
 
-            EncodingAttributes attrs = new EncodingAttributes();
-            attrs.setAudioAttributes(audioAtr);
-            attrs.setOutputFormat(audio.getInfo().getFormat());
+                EncodingAttributes attrs = new EncodingAttributes();
+                attrs.setAudioAttributes(audioAtr);
+                attrs.setOutputFormat(audio.getInfo().getFormat());
 
-            Encoder encoder = new Encoder();
-            encoder.encode(audio, target, attrs);
+                Encoder encoder = new Encoder();
+                encoder.encode(audio, target, attrs);
 
-            audioSave.setEnabled(true);
-            openAudio(target.toPath());
-        } catch (Exception e) {
-            e.printStackTrace();
-            QMessageBox.warning(widget, "Encoding Failed", "Something went wrong while encoding.");
+                audioSave.setEnabled(true);
+                openAudio(target.toPath());
+            } catch (Exception e) {
+                e.printStackTrace();
+                QMessageBox.warning(widget, "Encoding Failed", "Something went wrong while encoding.");
+            }
+
         }
 
     }

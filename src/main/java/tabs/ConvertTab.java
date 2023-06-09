@@ -67,35 +67,36 @@ public class ConvertTab {
     }
 
         private void saveFile() throws IOException {
+            if(path != null) {
+                Converter converter;
 
-            Converter converter;
+                // Create converter
+                if (mediaType.getClass().equals(ImageType.class)) {
+                    converter = new ImageConverter(path);
+                } else if (mediaType.getClass().equals(AudioType.class)) {
+                    converter = new AudioConverter(path);
+                } else if (mediaType.getClass().equals(VideoType.class)) {
+                    converter = new VideoConverter(path);
+                } else {
+                    converter = new Converter() {
+                        @Override
+                        public void convert(String to_type) throws IOException {
+                            throw new UnsupportedFileTypeException("Unsupported file type");
+                        }
 
-            // Create converter
-            if (mediaType.getClass().equals(ImageType.class)) {
-                converter = new ImageConverter(path);
-            } else if (mediaType.getClass().equals(AudioType.class)) {
-                converter = new AudioConverter(path);
-            } else if (mediaType.getClass().equals(VideoType.class)) {
-                converter = new VideoConverter(path);
-            } else {
-                converter = new Converter() {
-                    @Override
-                    public void convert(String to_type) throws IOException {
-                        throw new UnsupportedFileTypeException("Unsupported file type");
-                    }
+                        @Override
+                        public void save(String absolutePath, String fileName) throws IOException {
+                            throw new UnsupportedFileTypeException("Unsupported file type");
+                        }
+                    };
+                }
 
-                    @Override
-                    public void save(String absolutePath, String fileName) throws IOException {
-                        throw new UnsupportedFileTypeException("Unsupported file type");
-                    }
-                };
+                // Convert into selected format
+                converter.convert(selectedOption);
+
+                //Save converted file
+                converter.save(fieldFilePath.text(), fieldFileName.text());
             }
-
-            // Convert into selected format
-            converter.convert(selectedOption);
-
-            //Save converted file
-            converter.save(fieldFilePath.text(), fieldFileName.text());
         }
 
         private void openFile() {

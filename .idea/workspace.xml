@@ -4,26 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="Added VideoTab">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/Bit8Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/Bit8Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/BrightnessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/BrightnessFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/MirrorFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/MirrorFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/ScharpenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/SharpenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/TurnFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/TurnFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/WatermarkFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/WatermarkFilter.java" afterDir="false" />
+    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="comments">
       <change beforePath="$PROJECT_DIR$/src/main/java/tabs/ConvertTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/ConvertTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/gui/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/AudioType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/ImageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/VideoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686333462751</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="comments">
+      <created>1686339038591</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686339038591</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +256,8 @@
     <MESSAGE value="Tab anpassung" />
     <MESSAGE value="Added QtMultimedia" />
     <MESSAGE value="Added VideoTab" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added VideoTab" />
+    <MESSAGE value="comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

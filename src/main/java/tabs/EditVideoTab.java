@@ -172,38 +172,42 @@ public class EditVideoTab {
     }
 
     private void encode() {
-        try {
-            //accept settings
-            File source = path.toFile();
-            MultimediaObject video = new MultimediaObject(source);
-            File target = new File(TEMPFILE_PATH);
+       if(path != null)
+       {
+           try {
+               //accept settings
+               File source = path.toFile();
+               MultimediaObject video = new MultimediaObject(source);
+               File target = new File(TEMPFILE_PATH);
 
-            AudioInfo audioInfo = video.getInfo().getAudio();
-            AudioAttributes audioAtr = new AudioAttributes();
+               AudioInfo audioInfo = video.getInfo().getAudio();
+               AudioAttributes audioAtr = new AudioAttributes();
 
-            audioAtr.setBitRate(audioInfo.getBitRate());
-            audioAtr.setSamplingRate(audioInfo.getSamplingRate());
-            audioAtr.setChannels(audioInfo.getChannels());
+               audioAtr.setBitRate(audioInfo.getBitRate());
+               audioAtr.setSamplingRate(audioInfo.getSamplingRate());
+               audioAtr.setChannels(audioInfo.getChannels());
 
-            VideoAttributes videoAtr = new VideoAttributes();
-            videoAtr.setBitRate(Integer.parseInt(setBitRate.getText()));
-            videoAtr.setFrameRate(Integer.parseInt(setFrameRate.getText()));
-            videoAtr.setSize(new VideoSize(Integer.parseInt(setWidth.getText()), Integer.parseInt(setHeight.getText())));
+               VideoAttributes videoAtr = new VideoAttributes();
+               videoAtr.setBitRate(Integer.parseInt(setBitRate.getText()));
+               videoAtr.setFrameRate(Integer.parseInt(setFrameRate.getText()));
+               videoAtr.setSize(new VideoSize(Integer.parseInt(setWidth.getText()), Integer.parseInt(setHeight.getText())));
 
-            EncodingAttributes attrs = new EncodingAttributes();
-            attrs.setAudioAttributes(audioAtr);
-            attrs.setVideoAttributes(videoAtr);
-            attrs.setOutputFormat(video.getInfo().getFormat());
+               EncodingAttributes attrs = new EncodingAttributes();
+               attrs.setAudioAttributes(audioAtr);
+               attrs.setVideoAttributes(videoAtr);
+               attrs.setOutputFormat(video.getInfo().getFormat());
 
-            Encoder encoder = new Encoder();
-            encoder.encode(video, target, attrs);
+               Encoder encoder = new Encoder();
+               encoder.encode(video, target, attrs);
 
-            videoSave.setEnabled(true);
-            openVideo(target.toPath());
-        } catch (Exception e) {
-            e.printStackTrace();
-            QMessageBox.warning(widget, "Encoding Failed", "Something went wrong while encoding.");
-        }
+               videoSave.setEnabled(true);
+               openVideo(target.toPath());
+           } catch (Exception e) {
+               e.printStackTrace();
+               QMessageBox.warning(widget, "Encoding Failed", "Something went wrong while encoding.");
+           }
+       }
+
 
     }
 

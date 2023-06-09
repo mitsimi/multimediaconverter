@@ -115,9 +115,13 @@ public class EditPictureTab {
     }
 
     private void savePicture() throws IOException {
-        QImage image = pixmap.toImage();
-        System.out.print(fileInfo.absolutePath());
-        image.save(fileInfo.absolutePath()+fileInfo.baseName()+"new."+fileInfo.completeSuffix().toLowerCase());
+        if(pixmap != null)
+        {
+            QImage image = pixmap.toImage();
+            System.out.print(fileInfo.absolutePath());
+            image.save(fileInfo.absolutePath()+fileInfo.baseName()+"new."+fileInfo.completeSuffix().toLowerCase());
+        }
+
 
     }
 
