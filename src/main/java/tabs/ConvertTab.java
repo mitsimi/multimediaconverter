@@ -104,16 +104,17 @@ public class ConvertTab {
             fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
             fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
             fileDialog.exec();
+            if(path != null) {
+                fileInfo = new QFileInfo(path.toFile().getPath());
+                String fileType = fileInfo.completeSuffix();
 
-            fileInfo = new QFileInfo(path.toFile().getPath());
-            String fileType = fileInfo.completeSuffix();
+                // Set the file name and path based on the selected file
+                fieldFileName.setText(fileInfo.baseName());
+                fieldFilePath.setText(fileInfo.absoluteDir().absolutePath());
 
-            // Set the file name and path based on the selected file
-            fieldFileName.setText(fileInfo.baseName());
-            fieldFilePath.setText(fileInfo.absoluteDir().absolutePath());
-
-            dropdownMenu.clear();
-            loadDropdownOptions();
+                dropdownMenu.clear();
+                loadDropdownOptions();
+            }
         }
 
     /* TODO - other approach needed.

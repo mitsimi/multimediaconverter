@@ -44,9 +44,6 @@ public class EditVideoTab {
         videoWidget = new QVideoWidget(widget);
         mediaPlayer = new QMediaPlayer(videoWidget);
         mediaPlayer.setVideoOutput(videoWidget);
-        //mediaPlayer.setSource(new QUrl("D:/Test.mp4"));
-        //mediaPlayer.play();
-
         mediaPlayer.videoOutput();
 
         audioOutput = new QAudioOutput();
@@ -54,11 +51,6 @@ public class EditVideoTab {
         mediaPlayer.setAudioOutput(audioOutput);
 
         mediaPlayer.positionChanged.connect(this, "setSlider()");
-
-        cutBefore = new QPushButton("Cut Before", widget);
-        cutBefore.clicked.connect(this, "doCutBefore()");
-        cutAfter = new QPushButton("Cut After", widget);
-        cutAfter.clicked.connect(this, "doCutAfter()");
 
         QPushButton videoUpload = new QPushButton("Upload Video", widget);
         videoUpload.clicked.connect(this, "openVideo()");
@@ -89,49 +81,40 @@ public class EditVideoTab {
         encodeButton.clicked.connect(this, "encode()");
 
         timeSlider = new QSlider(Qt.Orientation.Horizontal, widget);
-        //timeSlider.sliderPressed.connect(this, "pauseVideo()");
-        //timeSlider.sliderMoved.connect(this, "setVideo()");
-        //timeSlider.sliderReleased.connect(this,"setVideo()");
+
         timeSlider.actionTriggered.connect(this, "setVideo()");
-        //QSlider slider2 = new QSlider(Qt.Orientation.Horizontal, widget);
+
         QStackedWidget sliders = new QStackedWidget(widget);
         sliders.insertWidget(0, timeSlider);
-        //slider2.setSliderPosition(5);
-        //sliders.insertWidget(1,slider2);
         sliders.setMaximumHeight(15);
 
         QHBoxLayout hBox1 = new QHBoxLayout(widget);
         QHBoxLayout hBox2 = new QHBoxLayout(widget);
         QHBoxLayout hBox3 = new QHBoxLayout(widget);
         QHBoxLayout hBox4 = new QHBoxLayout(widget);
-        QHBoxLayout hBox5 = new QHBoxLayout(widget);
-
-        //hBox1.addWidget(cutBefore);
-        //hBox1.addWidget(cutAfter);
-        //layout.addLayout(hBox1);
 
         layout.addWidget(videoWidget);
 
-        hBox2.addWidget(sliders);
+        hBox1.addWidget(sliders);
+        layout.addLayout(hBox1);
+
+        hBox2.addWidget(videoUpload);
+        hBox2.addWidget(playVideo);
+        hBox2.addWidget(stopVideo);
+        hBox2.addWidget(videoSave);
         layout.addLayout(hBox2);
 
-        hBox3.addWidget(videoUpload);
-        hBox3.addWidget(playVideo);
-        hBox3.addWidget(stopVideo);
-        hBox3.addWidget(videoSave);
+        hBox3.addWidget(sizeLabel);
+        hBox3.addWidget(setWidth);
+        hBox3.addWidget(setHeight);
+        hBox3.addWidget(frameRateLabel);
+        hBox3.addWidget(setFrameRate);
         layout.addLayout(hBox3);
 
-        hBox4.addWidget(sizeLabel);
-        hBox4.addWidget(setWidth);
-        hBox4.addWidget(setHeight);
-        hBox4.addWidget(frameRateLabel);
-        hBox4.addWidget(setFrameRate);
+        hBox4.addWidget(bitRateLabel);
+        hBox4.addWidget(setBitRate);
+        hBox4.addWidget(encodeButton);
         layout.addLayout(hBox4);
-
-        hBox5.addWidget(bitRateLabel);
-        hBox5.addWidget(setBitRate);
-        hBox5.addWidget(encodeButton);
-        layout.addLayout(hBox5);
 
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
@@ -237,13 +220,6 @@ public class EditVideoTab {
         System.out.println("Save");
         path.toFile().delete();
         temp.renameTo(path.toFile());
-
-    }
-
-    private void doCutBefore() {
-
-    }
-    private void doCutAfter() {
 
     }
 

@@ -176,7 +176,13 @@ public class EditAudioTab {
     }
 
     private boolean isAudioFile(String filePath) {
-        return true;
+        MultimediaObject audio = new MultimediaObject(path.toFile());
+        try {
+            return audio.getInfo().getAudio() != null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     private void encode() {
