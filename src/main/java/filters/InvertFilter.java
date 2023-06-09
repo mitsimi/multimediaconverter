@@ -18,6 +18,7 @@ public class InvertFilter implements Filter{
                 int green = color.green();
                 int blue = color.blue();
 
+
                 QColor newColor = new QColor(255 - green, 255 - blue, 255 - red);
 
                 // Zeichnen Sie den Pixel mit den neuen Farbwerten
