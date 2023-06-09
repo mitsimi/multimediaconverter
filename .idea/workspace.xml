@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="test push">
-      <change afterPath="$PROJECT_DIR$/src/main/java/filters/BrightnessFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/filters/MirrorFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/filters/TurnFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/filters/WatermarkFilter.java" afterDir="false" />
+    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="Added VideoTab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/SchaerfeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/ScharpenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +22,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="dev" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -69,11 +67,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+  </component>
   <component name="RunManager" selected="Application.StartApp">
     <configuration name="StartApp" type="Application" factoryName="Application">
       <envs>
@@ -103,7 +99,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4f7252d6-d7da-45ab-8d9d-400b74b33b59" name="Changes" comment="" />
+      <changelist id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="Added QtMultimedia" />
       <created>1683830107919</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -176,14 +172,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684856507809</updated>
     </task>
-    <task id="LOCAL-00010" summary="test push">
-      <created>1686319351373</created>
+    <task id="LOCAL-00010" summary="Added QtMultimedia">
+      <created>1686058660678</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1686319351375</updated>
+      <updated>1686058660678</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added VideoTab">
+      <created>1686333462751</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686333462751</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,8 +247,9 @@
     <MESSAGE value="Enhancement&#10;- Tested through image formats&#10;- fileExtension of Enums is now a ArrayList&lt;String&gt; (therefore one enum can have multiple file extensions)&#10;- Changed File to Path" />
     <MESSAGE value="pull dev" />
     <MESSAGE value="Tab anpassung" />
-    <MESSAGE value="test push" />
-    <option name="LAST_COMMIT_MESSAGE" value="test push" />
+    <MESSAGE value="Added QtMultimedia" />
+    <MESSAGE value="Added VideoTab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added VideoTab" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
