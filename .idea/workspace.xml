@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="Added VideoTab">
+    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="Added AudioTab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="wernerbranch" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,7 +68,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="Application.StartApp">
+  <component name="RunManager">
     <configuration name="StartApp" type="Application" factoryName="Application">
       <envs>
         <env name="PATH" value="C:\Qt\6.5.0\msvc2019_64\bin" />
@@ -193,26 +191,6 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/dev" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/dev-setup" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -230,6 +208,26 @@
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev-setup" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
