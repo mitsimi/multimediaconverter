@@ -25,7 +25,7 @@ public class Frame extends QThread {
 
     private void createFrame() {
 
-        // Frame erstellen
+        // Frame create
         frame = new QFrame();
         frame.setFrameStyle(QFrame.Shape.Box.value());
         frame.setLineWidth(0);
@@ -33,7 +33,7 @@ public class Frame extends QThread {
 
         QTabWidget tabWidget = new QTabWidget();
 
-        // Tabs erzeugen
+        // create Tabs
         ConvertTab convertTab = new ConvertTab();
         QWidget tab0 = convertTab.createTabWidget();
         tabWidget.addTab(tab0, "Convert");
@@ -50,10 +50,10 @@ public class Frame extends QThread {
         QWidget tab3 = videoTab.createTabWidget();
         tabWidget.addTab(tab3, "Edit: Video");
 
-        // Tabs hinzufügen
+        //add Tabs
         frameLayout.addWidget(tabWidget);
 
-        // Frame anzeigen
+        //show frame
         frame.show();
     }
 }

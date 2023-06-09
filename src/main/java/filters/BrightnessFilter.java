@@ -16,19 +16,21 @@ public class BrightnessFilter{
                 QColor color = new QColor(image.pixel(x, y));
                 int bright = 0;
                 QColor newColor = null;
+                //picture gets brighter
                 if(updateBrightness >= 0)
                 {
                     bright = Math.min(color.value()+updateBrightness,255);
                     newColor = color.lighter(bright);
 
                 }
+                //picture gets darker
                 else if (updateBrightness < 0){
                     bright = Math.max(color.value()-updateBrightness,0);
                     newColor = color.darker(bright);
 
                 }
 
-                // Zeichnen Sie den Pixel mit den neuen Farbwerten
+                // Draws Pixel with new color values
                 painter.setPen(newColor);
                 painter.drawPoint(x, y);
             }

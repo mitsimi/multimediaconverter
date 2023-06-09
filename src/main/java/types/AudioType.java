@@ -3,6 +3,7 @@ package types;
 import java.util.Objects;
 
 public enum AudioType implements MediaType {
+    //all audiotypes to convert
     MP3("mp3"),
     M4A("m4a"),
     AAC("aac"),

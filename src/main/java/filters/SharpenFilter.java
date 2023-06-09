@@ -6,14 +6,14 @@ import io.qt.gui.QPixmap;
 
 import static io.qt.core.QtGlobal.qBound;
 
-public class ScharpenFilter implements Filter {
+public class SharpenFilter implements Filter {
     public static QPixmap apply(QPixmap pixmap){
         QImage image = pixmap.toImage();
         QImage sharpenedImage = pixmap.toImage();
 
         int width = pixmap.width();
         int height = pixmap.height();
-
+        //kernel, which travels over the whole picture
         int[][] kernel = {
                 {0, -1, 0},
                 {-1, 5, -1},

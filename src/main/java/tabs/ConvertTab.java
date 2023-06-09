@@ -44,7 +44,7 @@ public class ConvertTab {
         QPushButton fileSave = new QPushButton("Save File", tabWidget);
         fileSave.clicked.connect(this, "saveFile()");
 
-        // ... Add other necessary widgets and connect signals/slots
+        //Add all Widgets to layout
 
         tabLayout.addWidget(labelName);
         tabLayout.addWidget(fieldFileName);
@@ -66,7 +66,6 @@ public class ConvertTab {
         selectedOption = dropdownMenu.itemText(index);
     }
 
-        // TODO - Rewrite this method to be more generic
         private void saveFile() throws IOException {
 
             Converter converter;
@@ -78,7 +77,7 @@ public class ConvertTab {
                 converter = new AudioConverter(path);
             } else if (mediaType.getClass().equals(VideoType.class)) {
                 converter = new VideoConverter(path);
-            } else { // so that the compiler shuts up
+            } else {
                 converter = new Converter() {
                     @Override
                     public void convert(String to_type) throws IOException {
@@ -100,6 +99,7 @@ public class ConvertTab {
         }
 
         private void openFile() {
+            //open file and set path
             QFileDialog fileDialog = new QFileDialog();
             fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
             fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
@@ -117,9 +117,6 @@ public class ConvertTab {
             }
         }
 
-    /* TODO - other approach needed.
-        Converting from raw files not possible because they are not supported for conversion TO them.
-     */
         private void loadDropdownOptions() {
             String fileType = fileInfo.completeSuffix().toLowerCase();
             // Load the dropdown options based on the file type

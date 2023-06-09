@@ -38,11 +38,6 @@ public class VideoConverter implements Converter {
         setStandardParams();
         convertFrom = VideoType.getEnum(path.toString().substring(path.toString().indexOf('.') + 1).toLowerCase());
         sourceFile = path;
-
-        //Test Settings
-        //setVideoAttributes(4000000, 10, new VideoSize(300, 480));
-
-        //setAudioAttributes(...);
     }
 
     /**

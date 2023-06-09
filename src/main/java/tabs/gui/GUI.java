@@ -7,7 +7,7 @@ public class GUI {
 
     public GUI(String[] args) {
         QApplication.initialize(args);
-
+        //Create frame and start
         Frame frameThread = new Frame();
         frameThread.start();
 

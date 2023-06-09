@@ -5,6 +5,7 @@ import java.util.List;
 
 //https://guides.lib.umich.edu/c.php?g=282942&p=1885348
 public enum ImageType implements MediaType {
+    //all image types to convert
     JPEG("jpg", "jpeg"),
     PNG("png"),
     TIFF("tiff", "tif"),

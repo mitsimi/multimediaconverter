@@ -27,12 +27,14 @@ public class Bit8Filter implements Filter {
 
     private static class EightBit {
         public static int fromColor(QColor c) {
+            //color to bit conversion
             return ((c.alpha() >> 6) << 6)
                     + ((c.red()   >> 6) << 4)
                     + ((c.green() >> 6) << 2)
                     +  (c.blue()  >> 6);
         }
         public static QColor toColor(int i) {
+            //bit to color conversion
             return new QColor(((i >> 4) % 4) * 64,
                     ((i >> 2) % 4) * 64,
                     (i       % 4) * 64,

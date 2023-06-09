@@ -6,9 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="Added VideoTab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/converter/VideoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/Bit8Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/Bit8Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/BrightnessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/BrightnessFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/InvertFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/MirrorFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/MirrorFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/ScharpenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/SharpenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/TurnFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/TurnFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/WatermarkFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/WatermarkFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tabs/ConvertTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/ConvertTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/gui/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/gui/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/AudioType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/AudioType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/ImageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/ImageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/UnsupportedFileTypeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/VideoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/VideoType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="wernerbranch" />
+        <entry key="$PROJECT_DIR$" value="dont_you_dare" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,11 +83,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.StartApp">
     <configuration name="StartApp" type="Application" factoryName="Application">
       <envs>

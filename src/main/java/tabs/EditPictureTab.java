@@ -189,7 +189,7 @@ public class EditPictureTab {
 
         pixmap =  switch (filter) {
             case "Invert" -> InvertFilter.apply(pixmap);
-            case "Sharp" -> ScharpenFilter.apply(pixmap);
+            case "Sharp" -> SharpenFilter.apply(pixmap);
             case "Bit" -> Bit8Filter.apply(pixmap);
             case "Dithering" -> DitheringFilter.apply(pixmap);
             case "Watermark" -> WatermarkFilter.apply(pixmap);

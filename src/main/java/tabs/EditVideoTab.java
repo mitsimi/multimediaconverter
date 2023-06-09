@@ -1,18 +1,14 @@
 package tabs;
 
 import io.qt.core.QFileInfo;
-import io.qt.core.QSize;
 import io.qt.core.QUrl;
 import io.qt.core.Qt;
-import io.qt.gui.QPixmap;
 import io.qt.multimedia.*;
-import io.qt.multimedia.widgets.QGraphicsVideoItem;
 import io.qt.multimedia.widgets.QVideoWidget;
 import io.qt.widgets.*;
 import ws.schild.jave.Encoder;
 import ws.schild.jave.EncoderException;
 import ws.schild.jave.MultimediaObject;
-import ws.schild.jave.VideoProcessor;
 import ws.schild.jave.encode.AudioAttributes;
 import ws.schild.jave.encode.EncodingAttributes;
 import ws.schild.jave.encode.VideoAttributes;
@@ -31,7 +27,7 @@ public class EditVideoTab {
     private QVideoWidget videoWidget;
     private QAudioOutput audioOutput;
     private QSlider timeSlider;
-    private QPushButton cutBefore, cutAfter, encodeButton, videoSave;
+    private QPushButton encodeButton, videoSave;
     private QLineEdit setWidth, setHeight, setFrameRate, setBitRate;
 
     private final static String TEMPFILE_PATH = ".temp.mp4";
@@ -139,6 +135,7 @@ public class EditVideoTab {
 
     private void openVideo()
     {
+        //open file
         QFileDialog fileDialog = new QFileDialog();
         fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
         fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
@@ -176,13 +173,14 @@ public class EditVideoTab {
 
     private void encode() {
         try {
+            //accept settings
             File source = path.toFile();
             MultimediaObject video = new MultimediaObject(source);
             File target = new File(TEMPFILE_PATH);
 
             AudioInfo audioInfo = video.getInfo().getAudio();
             AudioAttributes audioAtr = new AudioAttributes();
-            //audioAtr.setCodec("aac");
+
             audioAtr.setBitRate(audioInfo.getBitRate());
             audioAtr.setSamplingRate(audioInfo.getSamplingRate());
             audioAtr.setChannels(audioInfo.getChannels());
@@ -191,8 +189,6 @@ public class EditVideoTab {
             videoAtr.setBitRate(Integer.parseInt(setBitRate.getText()));
             videoAtr.setFrameRate(Integer.parseInt(setFrameRate.getText()));
             videoAtr.setSize(new VideoSize(Integer.parseInt(setWidth.getText()), Integer.parseInt(setHeight.getText())));
-            //videoAtr.setCodec(video.getInfo().getVideo().getDecoder());
-            //videoAtr.setCodec("mpeg4");
 
             EncodingAttributes attrs = new EncodingAttributes();
             attrs.setAudioAttributes(audioAtr);
@@ -231,32 +227,26 @@ public class EditVideoTab {
 
     private void setSlider() {
         long x = mediaPlayer.position() * 100 / mediaPlayer.getDuration();
-        //System.out.println(mediaPlayer.position() +" "+mediaPlayer.getDuration());
         timeSlider.setValue((int) x);
     }
 
     private void pauseVideo() {
         System.out.println("Pause");
-        cutBefore.setEnabled(true);
-        cutAfter.setEnabled(true);
         mediaPlayer.pause();
     }
 
     private void playVideo() {
         System.out.println("Play");
-        cutBefore.setEnabled(false);
-        cutAfter.setEnabled(false);
         mediaPlayer.play();
     }
 
     private void stopVideo() {
         System.out.println("Stop");
-        cutBefore.setEnabled(true);
-        cutAfter.setEnabled(true);
         mediaPlayer.pause();
     }
 
     private boolean isVideoFile(String filePath) {
+        //check id file is video
         MultimediaObject video = new MultimediaObject(path.toFile());
         try {
             return video.getInfo().getVideo() != null;

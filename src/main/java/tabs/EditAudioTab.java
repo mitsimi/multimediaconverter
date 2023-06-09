@@ -42,11 +42,12 @@ public class EditAudioTab {
         audioOutput = new QAudioOutput();
         audioOutput.setVolume(50);
 
-
+        //create media player for audio
         mediaPlayer = new QMediaPlayer();
         mediaPlayer.setAudioOutput(audioOutput);
         mediaPlayer.positionChanged.connect(this, "setSlider()");
 
+        //create Widgets
         QPushButton audioUpload = new QPushButton("Upload Audio", widget);
         audioUpload.clicked.connect(this, "openAudio()");
         audioSave = new QPushButton("Save Audio", widget);
@@ -78,47 +79,39 @@ public class EditAudioTab {
         encodeButton.clicked.connect(this, "encode()");
 
         timeSlider = new QSlider(Qt.Orientation.Horizontal, widget);
-        //timeSlider.sliderPressed.connect(this, "pauseVideo()");
-        //timeSlider.sliderMoved.connect(this, "setVideo()");
-        //timeSlider.sliderReleased.connect(this,"setVideo()");
+
         timeSlider.actionTriggered.connect(this, "setAudio()");
-        //QSlider slider2 = new QSlider(Qt.Orientation.Horizontal, widget);
+
         QStackedWidget sliders = new QStackedWidget(widget);
         sliders.insertWidget(0, timeSlider);
-        //slider2.setSliderPosition(5);
-        //sliders.insertWidget(1,slider2);
-        sliders.setMaximumHeight(15);
 
+        sliders.setMaximumHeight(15);
+        //create Layouts
+        QHBoxLayout hBox1 = new QHBoxLayout(widget);
         QHBoxLayout hBox2 = new QHBoxLayout(widget);
         QHBoxLayout hBox3 = new QHBoxLayout(widget);
         QHBoxLayout hBox4 = new QHBoxLayout(widget);
-        QHBoxLayout hBox5 = new QHBoxLayout(widget);
 
-        //hBox1.addWidget(cutBefore);
-        //hBox1.addWidget(cutAfter);
-        //layout.addLayout(hBox1);
+        hBox1.addWidget(sliders);
+        layout.addLayout(hBox1);
 
-
-        hBox2.addWidget(sliders);
+        hBox2.addWidget(audioUpload);
+        hBox2.addWidget(playAudio);
+        hBox2.addWidget(stopAudio);
+        hBox2.addWidget(audioSave);
         layout.addLayout(hBox2);
 
-        hBox3.addWidget(audioUpload);
-        hBox3.addWidget(playAudio);
-        hBox3.addWidget(stopAudio);
-        hBox3.addWidget(audioSave);
+        hBox3.addWidget(dropDown);
+        hBox3.addWidget(sampleRateLabel);
+        hBox3.addWidget(setSampleRate);
+        hBox3.addWidget(volumeLabel);
+        hBox3.addWidget(setVolume);
         layout.addLayout(hBox3);
 
-        hBox4.addWidget(dropDown);
-        hBox4.addWidget(sampleRateLabel);
-        hBox4.addWidget(setSampleRate);
-        hBox4.addWidget(volumeLabel);
-        hBox4.addWidget(setVolume);
+        hBox4.addWidget(bitRateLabel);
+        hBox4.addWidget(setBitRate);
+        hBox4.addWidget(encodeButton);
         layout.addLayout(hBox4);
-
-        hBox5.addWidget(bitRateLabel);
-        hBox5.addWidget(setBitRate);
-        hBox5.addWidget(encodeButton);
-        layout.addLayout(hBox5);
 
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
@@ -143,6 +136,7 @@ public class EditAudioTab {
 
     private void openAudio()
     {
+        //open audio file
         QFileDialog fileDialog = new QFileDialog();
         fileDialog.setFileMode(QFileDialog.FileMode.ExistingFile);
         fileDialog.fileSelected.connect(this, "handleSelectedFile(String)");
@@ -176,6 +170,7 @@ public class EditAudioTab {
     }
 
     private boolean isAudioFile(String filePath) {
+        //check if uploaded file is auio file
         MultimediaObject audio = new MultimediaObject(path.toFile());
         try {
             return audio.getInfo().getAudio() != null;
@@ -187,6 +182,7 @@ public class EditAudioTab {
 
     private void encode() {
         try {
+            //accepts setting
             File source = path.toFile();
             MultimediaObject audio = new MultimediaObject(source);
             File target = new File(TEMPFILE_PATH);
@@ -234,7 +230,6 @@ public class EditAudioTab {
 
     private void setSlider() {
         long x = mediaPlayer.position() * 100 / mediaPlayer.getDuration();
-        //System.out.println(mediaPlayer.position() +" "+mediaPlayer.getDuration());
         timeSlider.setValue((int) x);
     }
 
