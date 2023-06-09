@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="Added QtMultimedia">
+    <list default="true" id="b814b1ee-ef5d-41b5-ae2c-5824feed642d" name="Changes" comment="Added VideoTab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multimediaconverter.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditPictureTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditAudioTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tabs/EditVideoTab.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686058660678</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added VideoTab">
+      <created>1686333462751</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686333462751</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +248,8 @@
     <MESSAGE value="pull dev" />
     <MESSAGE value="Tab anpassung" />
     <MESSAGE value="Added QtMultimedia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added QtMultimedia" />
+    <MESSAGE value="Added VideoTab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added VideoTab" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

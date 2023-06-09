@@ -229,7 +229,7 @@ public class EditVideoTab {
     }
 
     private void saveVideo() {
-        File temp = new File("temp.mp4");
+        File temp = new File(TEMPFILE_PATH);
         if(!temp.exists()) {
             return;
         }
