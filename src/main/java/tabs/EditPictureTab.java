@@ -137,10 +137,12 @@ public class EditPictureTab {
             }
         }
     }
+
     private boolean isImageFile(String filePath) {
         QImageReader imageReader = new QImageReader(filePath);
         return imageReader.canRead();
     }
+
     private void handleSelectedFile(String filePath) {
         // Handle the selected file path here
         path = Path.of(filePath);
