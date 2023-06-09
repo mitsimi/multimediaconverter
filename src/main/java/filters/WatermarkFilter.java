@@ -1,9 +1,5 @@
 package filters;
 
-import io.qt.core.QFileInfo;
-import io.qt.core.QPoint;
-import io.qt.core.QSize;
-import io.qt.core.Qt;
 import io.qt.gui.*;
 import io.qt.widgets.QFileDialog;
 import io.qt.widgets.QWidget;

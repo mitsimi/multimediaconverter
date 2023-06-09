@@ -1,9 +1,6 @@
 package tabs;
 
-import filters.HellFilter;
-import filters.InvertFilter;
-import filters.SchaerfeFilter;
-import filters.WatermarkFilter;
+import filters.*;
 import io.qt.core.QFileInfo;
 import io.qt.core.QSize;
 import io.qt.core.Qt;
@@ -64,6 +61,12 @@ public class EditPictureTab {
         QPushButton watermark = new QPushButton("Wasserzeichen", tabWidget);
         watermark.clicked.connect(() -> filterPicture("Wasserzeichen"));
 
+        QPushButton drehen = new QPushButton("Drehen", tabWidget);
+        drehen.clicked.connect(() -> filterPicture("Drehen"));
+
+        QPushButton spiegeln = new QPushButton("Spiegeln", tabWidget);
+        spiegeln.clicked.connect(() -> filterPicture("Spiegeln"));
+
         QLabel labelHeight = new QLabel("Höhe [100 < px > 800]", tabWidget);
         QLineEdit setHeight = new QLineEdit(tabWidget);
         setHeight.setValidator(new QIntValidator(setHeight));
@@ -87,6 +90,8 @@ public class EditPictureTab {
         northLayout.addWidget(invert);
         northLayout.addWidget(schaerfe);
         northLayout.addWidget(watermark);
+        northLayout.addWidget(drehen);
+        northLayout.addWidget(spiegeln);
 
         centerLayout.addWidget(showPicture);
         centerLayout.setAlignment(Qt.AlignmentFlag.AlignCenter);
@@ -115,6 +120,7 @@ public class EditPictureTab {
     private void resizePicture(int height) {
     if(height > 100 && height < 800)
     {
+        resetPicture();
         QSize newSize = new QSize((pixmap.width() * height) / pixmap.height(),height);
         pixmap = pixmap.scaled(newSize);
         showPicture.setPixmap(pixmap);
@@ -179,6 +185,12 @@ public class EditPictureTab {
          else if (filter.equals("Wasserzeichen")) {
             pixmap = WatermarkFilter.watermarkPixmap(pixmap);
         }
+            else if (filter.equals("Drehen")) {
+                pixmap = TurnFilter.turnPixmap(pixmap);
+            }
+            else if (filter.equals("Spiegeln")) {
+                pixmap = SpiegelFilter.spiegelPixmap(pixmap);
+            }
             showPicture.setPixmap(pixmap);
         }
     }
