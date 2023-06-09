@@ -55,6 +55,7 @@ public class ImageConverter implements Converter {
         int x = 1;
         while (path.toFile().exists()) {
             path = Path.of(path.toFile().getParent() + "/" + path.toFile().getName().replace(".", "_" + x + "."));
+            x++;
         }
 
         return path;
