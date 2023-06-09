@@ -152,7 +152,7 @@ public class VideoConverter implements Converter {
             if (vi.getFrameRate() != -1) {
                 this.videoAttributes.setFrameRate((int) vi.getFrameRate());
             } else {
-                this.videoAttributes.setBitRate(30);
+                this.videoAttributes.setFrameRate(30);
             }
 
             if (vi.getSize() != null) {
