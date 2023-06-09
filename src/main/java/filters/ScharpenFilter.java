@@ -6,7 +6,7 @@ import io.qt.gui.QPixmap;
 
 import static io.qt.core.QtGlobal.qBound;
 
-public class SchaerfeFilter implements Filter {
+public class ScharpenFilter implements Filter {
     public static QPixmap apply(QPixmap pixmap){
         QImage image = pixmap.toImage();
         QImage sharpenedImage = pixmap.toImage();

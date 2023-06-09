@@ -1,24 +1,20 @@
 package tabs;
 
-import filters.Bit8Filter;
-import filters.DitheringFilter;
-import filters.InvertFilter;
-import filters.SchaerfeFilter;
+import filters.*;
 import io.qt.core.QFileInfo;
 import io.qt.core.QSize;
 import io.qt.core.Qt;
 import io.qt.gui.*;
 import io.qt.widgets.*;
 
-import javax.imageio.ImageIO;
-import java.awt.image.RenderedImage;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class EditPictureTab {
     private QLabel showPicture;
+    private QSlider slider;
+    private int oldBrightness = 0;
+
     QWidget tabWidget;
     private QPixmap pixmap;
     private QPixmap originalPixmap;
@@ -43,12 +39,14 @@ public class EditPictureTab {
         QHBoxLayout northLayout = new QHBoxLayout();
         QHBoxLayout centerLayout = new QHBoxLayout();
         QHBoxLayout southLayout = new QHBoxLayout();
-        QHBoxLayout eastLayout = new QHBoxLayout();
+        QHBoxLayout bottomLayout = new QHBoxLayout();
+        QHBoxLayout brightnessLayout = new QHBoxLayout();
 
         tabLayout.addLayout(northLayout);
         tabLayout.addLayout(centerLayout);
         tabLayout.addLayout(southLayout);
-        tabLayout.addLayout(eastLayout);
+        tabLayout.addLayout(bottomLayout);
+        tabLayout.addLayout(brightnessLayout);
 
 
         QPushButton invert = new QPushButton("Invert", tabWidget);
@@ -63,7 +61,16 @@ public class EditPictureTab {
         QPushButton dithering = new QPushButton("Dithering", tabWidget);
         dithering.clicked.connect(() -> filterPicture("Dithering"));
 
-        QLabel labelHeight = new QLabel("Height [100 < px > 800]", tabWidget);
+        QPushButton watermark = new QPushButton("Watermark", tabWidget);
+        watermark.clicked.connect(() -> filterPicture("Watermark"));
+
+        QPushButton turn = new QPushButton("Turn", tabWidget);
+        turn.clicked.connect(() -> filterPicture("Turn"));
+
+        QPushButton mirror = new QPushButton("Mirror", tabWidget);
+        mirror.clicked.connect(() -> filterPicture("Mirror"));
+
+        QLabel labelHeight = new QLabel("Height [100 <= px => 800]", tabWidget);
         QLineEdit setHeight = new QLineEdit(tabWidget);
         setHeight.setValidator(new QIntValidator(setHeight));
         QPushButton resize = new QPushButton("Resize", tabWidget);
@@ -75,18 +82,33 @@ public class EditPictureTab {
             }
         });
 
+        QLabel labelBright = new QLabel("Brightness", tabWidget);
+        slider = new QSlider(Qt.Orientation.Horizontal);
+        slider.setMinimum(-100);
+        slider.setMaximum(100);
+        slider.setSingleStep(10);
+        slider.setTickInterval(10);
+        slider.setTickPosition(QSlider.TickPosition.TicksBothSides);
+        slider.sliderReleased.connect(this, "updateValue()");
+
         northLayout.addWidget(invert);
         northLayout.addWidget(sharp);
         northLayout.addWidget(bit);
         northLayout.addWidget(dithering);
+        northLayout.addWidget(watermark);
+        northLayout.addWidget(turn);
+        northLayout.addWidget(mirror);
 
         centerLayout.addWidget(showPicture);
+        centerLayout.setAlignment(Qt.AlignmentFlag.AlignCenter);
         southLayout.addWidget(pictureUpload);
         southLayout.addWidget(reset);
         southLayout.addWidget(save);
-        eastLayout.addWidget(labelHeight);
-        eastLayout.addWidget(setHeight);
-        eastLayout.addWidget(resize);
+        bottomLayout.addWidget(labelHeight);
+        bottomLayout.addWidget(setHeight);
+        bottomLayout.addWidget(resize);
+        brightnessLayout.addWidget(labelBright);
+        brightnessLayout.addWidget(slider);
         tabLayout.setAlignment(Qt.AlignmentFlag.AlignCenter);
 
         return tabWidget;
@@ -102,8 +124,9 @@ public class EditPictureTab {
 
 
     private void resizePicture(int height) {
-    if(height > 100 && height < 800)
+    if(height >= 100 && height <= 800)
     {
+        resetPicture();
         QSize newSize = new QSize((pixmap.width() * height) / pixmap.height(),height);
         pixmap = pixmap.scaled(newSize);
         showPicture.setPixmap(pixmap);
@@ -164,12 +187,29 @@ public class EditPictureTab {
 
         pixmap =  switch (filter) {
             case "Invert" -> InvertFilter.apply(pixmap);
-            case "Sharp" -> SchaerfeFilter.apply(pixmap);
+            case "Sharp" -> ScharpenFilter.apply(pixmap);
             case "Bit" -> Bit8Filter.apply(pixmap);
             case "Dithering" -> DitheringFilter.apply(pixmap);
+            case "Watermark" -> WatermarkFilter.apply(pixmap);
+            case "Turn" -> TurnFilter.apply(pixmap);
+            case "Mirror" -> MirrorFilter.apply(pixmap);
             default -> throw new IllegalStateException("Unexpected value: " + filter);
         };
 
         showPicture.setPixmap(pixmap);
+    }
+    private void updateValue()
+    {
+        if(pixmap != null)
+        {
+            int newBrightness = slider.value();
+            newBrightness = newBrightness - oldBrightness;
+
+            pixmap = BrightnessFilter.apply(pixmap, newBrightness);
+            showPicture.setPixmap(pixmap);
+            oldBrightness = newBrightness;
+        }
+
+
     }
 }
